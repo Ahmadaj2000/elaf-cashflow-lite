@@ -1,0 +1,187 @@
+// ELAF design kit v1 — vendor into each module and replace the prefix `o_elaf_cf_`
+// with `o_elaf_<prod>_` (e.g. o_elaf_appr_). Pure SCSS, no external fonts/libraries.
+// Works on Odoo 17/18/19 backends (Bootstrap 5 present). RTL-safe (logical props).
+
+$elaf-ink: #1f2933;
+$elaf-muted: #52606d;
+$elaf-line: #d9e2ec;
+$elaf-surface: #ffffff;
+$elaf-canvas: #f5f7fa;
+$elaf-ok: #2b8a3e;
+$elaf-warn: #e67700;
+$elaf-bad: #c92a2a;
+$elaf-info: #1971c2;
+// Product accent — set per product:
+// approval #3b5bdb · health #0ca678 · cashflow #1098ad · rebalance #f08c00
+$elaf-accent: #1098ad;
+
+.o_elaf_cf_dashboard {
+    background: $elaf-canvas;
+    color: $elaf-ink;
+    min-height: 100%;
+    overflow: auto;
+    padding: 24px;
+    font-size: 14px;
+
+    .o_elaf_cf_header {
+        display: flex; flex-wrap: wrap; gap: 12px;
+        align-items: center; justify-content: space-between;
+        margin-block-end: 20px;
+        h1 { font-size: 22px; font-weight: 600; margin: 0; }
+        .o_elaf_cf_subtitle { color: $elaf-muted; margin: 2px 0 0; }
+        border-inline-start: 4px solid $elaf-accent;
+        padding-inline-start: 12px;
+    }
+    .o_elaf_cf_filters { display: flex; flex-wrap: wrap; gap: 8px; align-items: center; }
+
+    .o_elaf_cf_kpis {
+        display: grid; gap: 16px; margin-block-end: 20px;
+        grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+    }
+    .o_elaf_cf_kpi {
+        background: $elaf-surface; border: 1px solid $elaf-line; border-radius: 10px;
+        padding: 16px; cursor: pointer; transition: box-shadow .15s, transform .15s;
+        &:hover { box-shadow: 0 4px 14px rgba(31,41,51,.08); transform: translateY(-1px); }
+        .o_elaf_cf_kpi_label { color: $elaf-muted; font-size: 12px; text-transform: uppercase; letter-spacing: .04em; }
+        .o_elaf_cf_kpi_value { font-size: 26px; font-weight: 700; margin-top: 6px; line-height: 1.1; }
+        .o_elaf_cf_kpi_hint { color: $elaf-muted; font-size: 12px; margin-top: 4px; }
+        &.is-ok .o_elaf_cf_kpi_value { color: $elaf-ok; }
+        &.is-warn .o_elaf_cf_kpi_value { color: $elaf-warn; }
+        &.is-bad .o_elaf_cf_kpi_value { color: $elaf-bad; }
+    }
+
+    .o_elaf_cf_grid { display: grid; gap: 16px; grid-template-columns: repeat(auto-fit, minmax(380px, 1fr)); }
+    .o_elaf_cf_card {
+        background: $elaf-surface; border: 1px solid $elaf-line; border-radius: 10px;
+        padding: 16px; min-width: 0;
+        h2 { font-size: 15px; font-weight: 600; margin: 0 0 12px; }
+    }
+    .o_elaf_cf_table_wrap { overflow-x: auto; }
+    .o_elaf_cf_table {
+        width: 100%; border-collapse: collapse;
+        th { color: $elaf-muted; font-weight: 600; font-size: 12px; text-align: start; border-bottom: 1px solid $elaf-line; padding: 6px 8px; }
+        td { border-bottom: 1px solid lighten($elaf-line, 4%); padding: 8px; text-align: start; }
+        td.num, th.num { text-align: end; font-variant-numeric: tabular-nums; }
+        tr.o_elaf_cf_clickable { cursor: pointer; &:hover td { background: $elaf-canvas; } }
+    }
+    .o_elaf_cf_pill {
+        display: inline-block; border-radius: 999px; padding: 2px 10px; font-size: 12px; font-weight: 600;
+        background: lighten($elaf-info, 45%); color: $elaf-info;
+        &.ok { background: lighten($elaf-ok, 50%); color: $elaf-ok; }
+        &.warn { background: lighten($elaf-warn, 45%); color: darken($elaf-warn, 8%); }
+        &.bad { background: lighten($elaf-bad, 45%); color: $elaf-bad; }
+    }
+    .o_elaf_cf_estimate { font-style: italic; color: $elaf-muted; }   // label for estimates
+    .o_elaf_cf_forecast { stroke-dasharray: 5 4; }                     // forecast lines in SVG
+    .o_elaf_cf_reco {
+        border-inline-start: 3px solid $elaf-accent; background: $elaf-canvas;
+        padding: 10px 12px; border-radius: 6px; margin-bottom: 8px;
+    }
+    .o_elaf_cf_state {           // loading / empty / error
+        text-align: center; color: $elaf-muted; padding: 48px 16px;
+        .o_elaf_cf_state_title { font-size: 16px; color: $elaf-ink; font-weight: 600; margin-bottom: 6px; }
+        &.error .o_elaf_cf_state_title { color: $elaf-bad; }
+    }
+    svg.o_elaf_cf_chart { width: 100%; height: auto; display: block;
+        .bar { fill: $elaf-accent; } .bar.neg { fill: $elaf-bad; }
+        .axis { stroke: $elaf-line; } text { fill: $elaf-muted; font-size: 11px; }
+        .line { fill: none; stroke: $elaf-accent; stroke-width: 2; }
+        .threshold { stroke: $elaf-bad; stroke-dasharray: 4 3; }
+    }
+}
+@media (max-width: 768px) {
+    .o_elaf_cf_dashboard { padding: 12px;
+        .o_elaf_cf_grid { grid-template-columns: 1fr; } }
+}
+
+// ---------------------------------------------------------------------------
+// Cash Flow specific components (same tokens)
+// ---------------------------------------------------------------------------
+.o_elaf_cf_dashboard {
+    height: 100%;
+    &.o_action, .o_action_manager > &.o_action { overflow: auto; }
+    .o_elaf_cf_header h1 { display: flex; align-items: center; gap: 10px; flex-wrap: wrap; }
+    .o_elaf_cf_edition { font-size: 11px; vertical-align: middle; }
+    .o_elaf_cf_select { width: auto; max-width: 260px; }
+    .o_elaf_cf_banner { margin-block-end: 12px; }
+    .o_elaf_cf_tag {
+        display: inline-block; font-size: 10px; font-weight: 700; letter-spacing: .05em;
+        border-radius: 4px; padding: 1px 6px; margin-inline-start: 4px; vertical-align: middle;
+        &.actual { background: $elaf-accent; color: #fff; }
+        &.forecast { background: transparent; color: $elaf-accent; border: 1px dashed $elaf-accent; font-style: italic; }
+    }
+    .o_elaf_cf_alert {
+        display: flex; gap: 12px; align-items: flex-start; cursor: pointer;
+        background: lighten($elaf-bad, 46%); border: 1px solid lighten($elaf-bad, 30%);
+        border-inline-start: 4px solid $elaf-bad; color: darken($elaf-bad, 10%);
+        border-radius: 8px; padding: 12px 14px; margin-block-end: 16px;
+        .fa { font-size: 20px; margin-top: 2px; }
+        &.ok { cursor: default; background: lighten($elaf-ok, 52%); border-color: lighten($elaf-ok, 35%);
+               border-inline-start-color: $elaf-ok; color: darken($elaf-ok, 5%); }
+    }
+    .o_elaf_cf_usage {
+        .o_elaf_cf_usage_value { font-size: 22px; }
+        .o_elaf_cf_progress { height: 8px; border-radius: 4px; background: $elaf-line; margin-top: 8px; overflow: hidden;
+            > div { height: 100%; background: $elaf-accent; } }
+        &.warn .o_elaf_cf_progress > div { background: $elaf-warn; }
+        &.bad .o_elaf_cf_progress > div { background: $elaf-bad; }
+    }
+    .o_elaf_cf_meta { color: $elaf-muted; font-size: 12px; margin-block-end: 10px; }
+    .o_elaf_cf_card h2 small { font-weight: 400; font-size: 12px; }
+    .o_elaf_cf_toggle { cursor: pointer; user-select: none; margin-bottom: 0 !important; }
+    .o_elaf_cf_how table { margin-top: 12px; }
+    .o_elaf_cf_calc tr.total td { font-weight: 700; border-top: 1px solid $elaf-line; }
+    .o_elaf_cf_calc tr.muted td { color: $elaf-muted; }
+    .o_elaf_cf_rules { color: $elaf-muted; font-size: 12px; margin: 10px 0; padding-inline-start: 18px; }
+    .o_elaf_cf_table {
+        tr.is-short td { background: lighten($elaf-bad, 47%); }
+        tr.is-selected td { box-shadow: inset 0 -2px 0 $elaf-accent; }
+        tfoot tr.total td { font-weight: 700; border-top: 2px solid $elaf-line; }
+        td.neg { color: $elaf-bad; }
+        td.strong { font-weight: 700; }
+        .o_elaf_cf_link { cursor: pointer; color: darken($elaf-accent, 8%); &:hover { text-decoration: underline; } }
+        .o_elaf_cf_sub { font-size: 11px; color: $elaf-muted; }
+    }
+    .o_elaf_cf_detail_row > td { background: $elaf-canvas; padding: 8px; }
+    .o_elaf_cf_detail { background: $elaf-surface; border: 1px solid $elaf-line; border-radius: 8px; padding: 8px 10px; }
+    .o_elaf_cf_detail_head { display: flex; flex-wrap: wrap; justify-content: space-between; align-items: center; gap: 8px; margin-bottom: 6px; }
+    .o_elaf_cf_scroll { max-height: 420px; overflow-y: auto; }
+    .o_elaf_cf_locked_list { display: flex; flex-wrap: wrap; gap: 8px; }
+    .o_elaf_cf_locked_item { border: 1px dashed $elaf-line; border-radius: 6px; padding: 4px 8px; color: $elaf-muted; font-size: 12px; }
+    .o_elaf_cf_compare { td.o_elaf_cf_no { color: $elaf-muted; } td.o_elaf_cf_yes { color: $elaf-ok; font-weight: 600; } }
+    .o_elaf_cf_chart_wrap { overflow-x: auto; }
+    svg.o_elaf_cf_chart {
+        min-width: 560px;
+        .grid { stroke: $elaf-line; stroke-width: 1; opacity: .6; }
+        .tick { font-size: 11px; }
+        .xlabel { font-size: 11px; &.strong { font-weight: 700; fill: $elaf-ink; } }
+        .bar.actual { fill: $elaf-accent; }
+        .bar.forecast { stroke: $elaf-accent; stroke-width: 1; cursor: pointer; opacity: .9; }
+        .bar.forecast.short { stroke: $elaf-bad; }
+        .bar.forecast.selected { stroke-width: 2.5; opacity: 1; }
+        .line { stroke: $elaf-ink; stroke-width: 2; }
+        .line.extra { stroke-width: 2; opacity: .9; }
+        .dot { fill: $elaf-surface; stroke: $elaf-ink; stroke-width: 2; cursor: pointer; &.short { stroke: $elaf-bad; fill: $elaf-bad; } }
+        .threshold { stroke: $elaf-bad; stroke-width: 1.5; }
+    }
+    .o_elaf_cf_legend {
+        display: flex; flex-wrap: wrap; gap: 14px; font-size: 12px; color: $elaf-muted; margin-top: 6px;
+        .sw { display: inline-block; width: 18px; height: 10px; vertical-align: middle; margin-inline-end: 4px; border-radius: 2px; }
+        .sw.actual { background: $elaf-accent; }
+        .sw.forecast { background: repeating-linear-gradient(45deg, $elaf-accent 0 2px, lighten($elaf-accent, 50%) 2px 5px); border: 1px solid $elaf-accent; }
+        .sw.line { height: 0; border-top: 2px dashed $elaf-ink; border-radius: 0; }
+        .sw.threshold { height: 0; border-top: 2px dashed $elaf-bad; border-radius: 0; }
+        .sw.short { background: repeating-linear-gradient(45deg, $elaf-bad 0 2px, lighten($elaf-bad, 44%) 2px 5px); }
+    }
+}
+
+// ELAF scroll fix: Odoo sets overflow:hidden on .o_action (3-class rule); let our client actions scroll.
+.o_web_client .o_action_manager > .o_action.o_elaf_cf_dashboard {
+    display: block;
+    height: 100%;
+    overflow-x: hidden;
+    overflow-y: auto;
+    scrollbar-width: auto;              // Odoo hides the scrollbar on desktop; show it so users see they can scroll
+    &::-webkit-scrollbar { display: block; width: 10px; }
+    &::-webkit-scrollbar-thumb { background: #c5ccd6; border-radius: 6px; }
+}

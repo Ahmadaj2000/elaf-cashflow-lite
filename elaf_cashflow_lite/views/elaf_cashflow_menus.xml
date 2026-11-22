@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <menuitem id="menu_root" name="Cash Flow" sequence="46"
+              web_icon="elaf_cashflow_lite,static/description/icon.png"
+              groups="group_cashflow_user"/>
+    <menuitem id="menu_dashboard" name="Dashboard" parent="menu_root" action="action_dashboard" sequence="1"/>
+    <menuitem id="menu_forecasts" name="Saved Forecasts" parent="menu_root" action="action_forecasts" sequence="10"/>
+    <menuitem id="menu_config" name="Configuration" parent="menu_root" sequence="90"/>
+    <menuitem id="menu_settings" name="Settings" parent="menu_config" action="action_settings" sequence="1"
+              groups="group_cashflow_manager"/>
+    <menuitem id="menu_usage" name="Lite Usage" parent="menu_config" action="action_usage" sequence="20"/>
+    <menuitem id="menu_usage_log" name="Lite Usage Log" parent="menu_config" action="action_usage_log" sequence="21"
+              groups="group_cashflow_manager"/>
+    <menuitem id="menu_edition" name="Lite vs Pro" parent="menu_root" action="action_edition" sequence="95"/>
+</odoo>

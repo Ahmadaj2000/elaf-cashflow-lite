@@ -1,0 +1,396 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<templates xml:space="preserve">
+    <t t-name="elaf_cashflow_lite.Dashboard">
+        <div class="o_elaf_cf_dashboard o_action">
+            <div class="o_elaf_cf_header">
+                <div>
+                    <h1>
+                        Cash Flow
+                        <span t-if="data and data.usage.is_pro" class="o_elaf_cf_pill ok o_elaf_cf_edition">Pro edition</span>
+                        <span t-elif="data" class="o_elaf_cf_pill o_elaf_cf_edition">Lite Edition</span>
+                    </h1>
+                    <p class="o_elaf_cf_subtitle">
+                        Know your cash position before tomorrow arrives.
+                        <t t-if="data"> · <t t-esc="data.company.name"/> · <t t-esc="data.currency.name"/></t>
+                    </p>
+                </div>
+                <div class="o_elaf_cf_filters" t-if="data">
+                    <t t-foreach="filterComponents" t-as="entry" t-key="entry[0]">
+                        <t t-component="entry[1]" dashboard="this" data="data" filters="state.filters"/>
+                    </t>
+                    <select t-if="data.mode !== 'live' and data.saved_forecasts.length" class="form-select o_elaf_cf_select"
+                            t-on-change="onSelectForecast" aria-label="Saved forecast">
+                        <t t-foreach="data.saved_forecasts" t-as="sf" t-key="sf.id">
+                            <option t-att-value="sf.id" t-att-selected="data.forecast_id === sf.id" t-esc="sf.name"/>
+                        </t>
+                    </select>
+                    <button class="btn btn-primary" t-on-click="generate" t-att-disabled="state.busy"
+                            t-att-title="usage.can_generate ? '' : 'Lite allowance used: opens the Lite vs Pro page'">
+                        <i class="fa fa-play me-1"/>
+                        <t t-if="usage.can_generate">Generate forecast</t>
+                        <t t-else="">Generate forecast (limit reached)</t>
+                    </button>
+                    <button class="btn btn-secondary" t-on-click="() => this.load()" title="Refresh">
+                        <i class="fa fa-refresh"/>
+                    </button>
+                    <button t-if="data.is_manager" class="btn btn-secondary" t-on-click="openSettings" title="Settings">
+                        <i class="fa fa-cog"/>
+                    </button>
+                </div>
+            </div>
+
+            <!-- Loading / error -->
+            <div t-if="state.loading" class="o_elaf_cf_state">
+                <i class="fa fa-circle-o-notch fa-spin fa-2x mb-2"/>
+                <div class="o_elaf_cf_state_title">Loading cash position…</div>
+            </div>
+            <div t-elif="state.error" class="o_elaf_cf_state error">
+                <div class="o_elaf_cf_state_title">Could not load the dashboard</div>
+                <div t-esc="state.error"/>
+                <button class="btn btn-secondary mt-3" t-on-click="() => this.load()">Retry</button>
+            </div>
+            <t t-elif="data">
+                <!-- Usage / edition banners (Lite only) -->
+                <div t-if="usage.wrong_company" class="alert alert-warning o_elaf_cf_banner" role="alert">
+                    The Lite edition works with one company: <strong t-esc="usage.bound_company"/>.
+                    You can view this company's actual cash position; generating forecasts here needs the Pro edition.
+                    <a href="#" t-on-click.prevent="openEdition">Lite vs Pro</a>
+                </div>
+                <div t-elif="usage.exhausted" class="alert alert-danger o_elaf_cf_banner" role="alert">
+                    Lite forecast allowance used (<t t-esc="usage.used"/>/<t t-esc="usage.limit"/>).
+                    Your saved forecasts stay available. The Pro edition removes this limit.
+                    <a href="#" t-on-click.prevent="openEdition">See what Pro adds</a>
+                </div>
+                <div t-elif="!usage.is_pro and usage.caps_enabled and usage.percent >= 80" class="alert alert-warning o_elaf_cf_banner" role="alert">
+                    <t t-esc="usage.remaining"/> Lite forecast calculation(s) left.
+                    <a href="#" t-on-click.prevent="openEdition">Lite vs Pro</a>
+                </div>
+
+                <!-- Shortage alert -->
+                <div t-if="forecast and forecast.shortage" class="o_elaf_cf_alert" role="alert"
+                     t-on-click="() => this.selectBucket(shortageBuckets[0].index)">
+                    <i class="fa fa-exclamation-triangle"/>
+                    <div>
+                        <strong>Liquidity shortage forecast</strong>
+                        on <t t-esc="fmtDate(forecast.shortage_date)"/>: the projected balance falls below the
+                        minimum cash threshold (<t t-esc="fmt(forecast.threshold)"/>) by
+                        <strong t-esc="fmt(forecast.shortage_gap)"/>.
+                        Lowest projected balance <t t-esc="fmt(forecast.lowest)"/> on <t t-esc="fmtDate(forecast.lowest_date)"/>
+                        (<t t-esc="shortageBuckets.length"/> bucket(s) below threshold). Click to see the flows.
+                    </div>
+                </div>
+                <div t-elif="forecast" class="o_elaf_cf_alert ok" role="status">
+                    <i class="fa fa-check-circle"/>
+                    <div>No liquidity shortage forecast: the projected balance stays above the minimum cash threshold
+                        (<t t-esc="fmt(forecast.threshold)"/>) until <t t-esc="fmtDate(forecast.date_to)"/>.</div>
+                </div>
+
+                <!-- KPIs -->
+                <div class="o_elaf_cf_kpis">
+                    <div class="o_elaf_cf_kpi" t-on-click="openCashLines" role="button" tabindex="0">
+                        <div class="o_elaf_cf_kpi_label">Cash position <span class="o_elaf_cf_tag actual">Actual</span></div>
+                        <div class="o_elaf_cf_kpi_value" t-esc="fmt(data.position.cash)"/>
+                        <div class="o_elaf_cf_kpi_hint">Posted bank and cash balances as of <t t-esc="fmtDate(data.today)"/></div>
+                    </div>
+                    <div class="o_elaf_cf_kpi" t-on-click="openOutstandingLines" role="button" tabindex="0">
+                        <div class="o_elaf_cf_kpi_label">Outstanding payments <span class="o_elaf_cf_tag actual">Actual</span></div>
+                        <div class="o_elaf_cf_kpi_value" t-esc="fmt(data.position.outstanding_net)"/>
+                        <div class="o_elaf_cf_kpi_hint">
+                            Receipts <t t-esc="fmt(data.position.outstanding_receipts)"/> · payments <t t-esc="fmt(data.position.outstanding_payments)"/>
+                            <t t-if="data.position.include_outstanding"> · included in opening</t>
+                            <t t-else=""> · not included in opening</t>
+                        </div>
+                    </div>
+                    <t t-if="forecast">
+                        <div t-attf-class="o_elaf_cf_kpi {{ forecast.closing &lt; forecast.threshold ? 'is-bad' : 'is-ok' }}" t-on-click="toggleHow" role="button" tabindex="0">
+                            <div class="o_elaf_cf_kpi_label">Projected in <t t-esc="forecast.horizon"/> days <span class="o_elaf_cf_tag forecast">Forecast</span></div>
+                            <div class="o_elaf_cf_kpi_value" t-esc="fmt(forecast.closing)"/>
+                            <div class="o_elaf_cf_kpi_hint">On <t t-esc="fmtDate(forecast.date_to)"/> · click for how it is calculated</div>
+                        </div>
+                        <div t-attf-class="o_elaf_cf_kpi {{ forecast.shortage ? 'is-bad' : '' }}" role="button" tabindex="0"
+                             t-on-click="selectLowest">
+                            <div class="o_elaf_cf_kpi_label">Lowest projected balance <span class="o_elaf_cf_tag forecast">Forecast</span></div>
+                            <div class="o_elaf_cf_kpi_value" t-esc="fmt(forecast.lowest)"/>
+                            <div class="o_elaf_cf_kpi_hint">On <t t-esc="fmtDate(forecast.lowest_date)"/> · threshold <t t-esc="fmt(forecast.threshold)"/></div>
+                        </div>
+                        <div class="o_elaf_cf_kpi" t-on-click="openInflowLines" role="button" tabindex="0">
+                            <div class="o_elaf_cf_kpi_label">Expected inflows <span class="o_elaf_cf_tag forecast">Forecast</span></div>
+                            <div class="o_elaf_cf_kpi_value" t-esc="fmt(forecast.total_inflow)"/>
+                            <div class="o_elaf_cf_kpi_hint"><t t-esc="inflows.length"/> item(s) · overdue <t t-esc="fmt(forecast.overdue_inflow)"/></div>
+                        </div>
+                        <div class="o_elaf_cf_kpi" t-on-click="openOutflowLines" role="button" tabindex="0">
+                            <div class="o_elaf_cf_kpi_label">Expected outflows <span class="o_elaf_cf_tag forecast">Forecast</span></div>
+                            <div class="o_elaf_cf_kpi_value" t-esc="fmt(forecast.total_outflow)"/>
+                            <div class="o_elaf_cf_kpi_hint"><t t-esc="outflows.length"/> item(s) · overdue <t t-esc="fmt(forecast.overdue_outflow)"/></div>
+                        </div>
+                    </t>
+                    <div t-else="" class="o_elaf_cf_kpi" t-on-click="openOverdueLines" role="button" tabindex="0">
+                        <div class="o_elaf_cf_kpi_label">Overdue receivables <span class="o_elaf_cf_tag actual">Actual</span></div>
+                        <div class="o_elaf_cf_kpi_value" t-esc="fmt(data.overdue_receivables.amount)"/>
+                        <div class="o_elaf_cf_kpi_hint"><t t-esc="data.overdue_receivables.count"/> invoice(s) past due</div>
+                    </div>
+                    <div t-if="!usage.is_pro" t-attf-class="o_elaf_cf_kpi o_elaf_cf_usage {{ usageLevel }}" t-on-click="openEdition" role="button" tabindex="0">
+                        <div class="o_elaf_cf_kpi_label">Lite usage</div>
+                        <div class="o_elaf_cf_kpi_value o_elaf_cf_usage_value">
+                            <span dir="ltr"><t t-esc="usage.used"/> / <t t-esc="usage.limit"/></span>
+                        </div>
+                        <div class="o_elaf_cf_progress"><div t-att-style="'width:' + usage.percent + '%'"/></div>
+                        <div class="o_elaf_cf_kpi_hint">
+                            forecast calculations used · <t t-esc="usage.remaining"/> left
+                            <t t-if="!usage.caps_enabled"> (cap disabled)</t>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Empty forecast state -->
+                <div t-if="!forecast" class="o_elaf_cf_card o_elaf_cf_state">
+                    <div class="o_elaf_cf_state_title">No forecast yet</div>
+                    <p>Generate a forecast to project your actual cash with open customer invoices and vendor bills
+                        over the next <t t-esc="data.allowed_horizons[data.allowed_horizons.length - 1]"/> days
+                        and detect liquidity shortages below your minimum cash threshold (<t t-esc="fmt(data.threshold)"/>).</p>
+                    <button class="btn btn-primary" t-on-click="generate" t-att-disabled="state.busy">
+                        <t t-if="usage.can_generate">Generate forecast</t>
+                        <t t-else="">See Lite vs Pro</t>
+                    </button>
+                </div>
+
+                <t t-if="forecast">
+                    <div class="o_elaf_cf_meta">
+                        <t t-if="forecast.saved">
+                            Saved forecast <a href="#" t-on-click.prevent="openSavedForecast" t-esc="forecast.name"/>,
+                            calculated <t t-esc="forecast.computed_at"/> (UTC) by <t t-esc="forecast.computed_by"/>.
+                            Figures are a snapshot of that moment; generate a new forecast for current figures.
+                        </t>
+                        <t t-else="">Live forecast computed now from current open items.</t>
+                        <a href="#" class="ms-2" t-on-click.prevent="openForecastList">All saved forecasts</a>
+                    </div>
+
+                    <!-- Chart -->
+                    <div class="o_elaf_cf_card mb-3">
+                        <h2>Actual vs forecast balance
+                            <small class="text-muted">(<t t-if="forecast.granularity === 'day'">daily</t><t t-else="">weekly</t> buckets, <t t-esc="fmtDate(forecast.date_from)"/> – <t t-esc="fmtDate(forecast.date_to)"/>)</small>
+                        </h2>
+                        <CashflowChart forecast="forecast" threshold="forecast.threshold" format.bind="fmt" formatShort.bind="fmtShort"
+                                       onSelect="(i) => this.selectBucket(i)" selected="state.selected ? state.selected.bucket : null"/>
+                    </div>
+
+                    <!-- How calculated -->
+                    <div class="o_elaf_cf_card mb-3 o_elaf_cf_how">
+                        <h2 class="o_elaf_cf_toggle" t-on-click="toggleHow" role="button">
+                            <i t-attf-class="fa {{ state.showHow ? 'fa-caret-down' : 'fa-caret-right' }} me-1"/>
+                            How this is calculated
+                            <span t-if="forecast.reconciles" class="o_elaf_cf_pill ok ms-2">Reconciles</span>
+                            <span t-else="" class="o_elaf_cf_pill bad ms-2">Does not reconcile</span>
+                        </h2>
+                        <t t-if="state.showHow">
+                            <table class="o_elaf_cf_table o_elaf_cf_calc">
+                                <tbody>
+                                    <tr><td>Actual bank and cash balance (posted, <t t-esc="fmtDate(forecast.date_from)"/>)</td><td class="num" t-esc="fmt(forecast.position.cash)"/></tr>
+                                    <tr><td>Outstanding receipts and payments (net)<t t-if="!forecast.position.include_outstanding"> – not included</t></td>
+                                        <td class="num" t-esc="fmt(forecast.position.include_outstanding ? forecast.position.outstanding_net : 0)"/></tr>
+                                    <tr class="total"><td>= Opening balance</td><td class="num" t-esc="fmt(forecast.opening)"/></tr>
+                                    <tr><td>+ Expected inflows: open customer invoice residuals due by <t t-esc="fmtDate(forecast.date_to)"/> (overdue included in the first bucket: <t t-esc="fmt(forecast.overdue_inflow)"/>)</td>
+                                        <td class="num" t-esc="fmt(forecast.total_inflow)"/></tr>
+                                    <tr><td>− Expected outflows: open vendor bill residuals due by <t t-esc="fmtDate(forecast.date_to)"/> (overdue included: <t t-esc="fmt(forecast.overdue_outflow)"/>)</td>
+                                        <td class="num" t-esc="fmt(forecast.total_outflow)"/></tr>
+                                    <tr class="total"><td>= Projected closing balance (forecast)</td><td class="num" t-esc="fmt(forecast.closing)"/></tr>
+                                    <tr><td>Check: opening + inflows − outflows − closing</td>
+                                        <td class="num" t-esc="fmt(forecast.opening + forecast.total_inflow - forecast.total_outflow - forecast.closing)"/></tr>
+                                    <tr class="muted"><td>Not in this horizon: receivables / payables due later</td>
+                                        <td class="num"><t t-esc="fmt(forecast.beyond.inflow)"/> / <t t-esc="fmt(forecast.beyond.outflow)"/></td></tr>
+                                </tbody>
+                            </table>
+                            <div t-if="forecast.reconciliation and forecast.reconciliation.applicable" class="o_elaf_cf_table_wrap mb-2">
+                                <table class="o_elaf_cf_table o_elaf_cf_recon">
+                                    <thead><tr><th>Source check (horizon + beyond)</th><th class="num">Forecast</th><th class="num">Independent sum</th><th class="num">Difference</th></tr></thead>
+                                    <tbody>
+                                        <tr t-foreach="forecast.reconciliation.checks" t-as="c" t-key="c.source + c.direction">
+                                            <td t-esc="c.label"/><td class="num" t-esc="fmt(c.engine)"/><td class="num" t-esc="fmt(c.expected)"/>
+                                            <td t-attf-class="num {{ c.ok ? '' : 'text-danger' }}" t-esc="fmt(c.difference)"/>
+                                        </tr>
+                                        <tr class="total"><td>Total inflows / outflows</td>
+                                            <td class="num"><t t-esc="fmt(forecast.reconciliation.engine_inflow)"/> / <t t-esc="fmt(forecast.reconciliation.engine_outflow)"/></td>
+                                            <td class="num"><t t-esc="fmt(forecast.reconciliation.expected_inflow)"/> / <t t-esc="fmt(forecast.reconciliation.expected_outflow)"/></td>
+                                            <td><span t-if="forecast.reconciliation.ok" class="o_elaf_cf_pill ok">Each amount counted once</span>
+                                                <span t-else="" class="o_elaf_cf_pill bad">Check sources</span></td></tr>
+                                    </tbody>
+                                </table>
+                            </div>
+                            <ul class="o_elaf_cf_rules">
+                                <li>Amounts are in company currency; foreign-currency residuals are converted at the rate of the forecast date.</li>
+                                <li>Each item is placed on its due date. Items already due are overdue and placed in the first bucket.</li>
+                                <li>A bucket is a shortage when its lowest daily projected balance is below the minimum cash threshold; the gap is threshold − lowest balance.</li>
+                                <li>Only posted documents are used. Drafts and cancelled documents are never cash, receivables or payables; partial payments and credit notes reduce the open residual.</li>
+                            </ul>
+                            <div t-if="data.position.journals.length" class="o_elaf_cf_table_wrap">
+                                <table class="o_elaf_cf_table">
+                                    <thead><tr><th>Journal (actual, live)</th><th>Account</th><th class="num">Balance</th></tr></thead>
+                                    <tbody>
+                                        <tr t-foreach="data.position.journals" t-as="j" t-key="j.account_id" class="o_elaf_cf_clickable"
+                                            t-on-click="() => this.openAccountLines(j.account_id, j.journal_name)">
+                                            <td t-esc="j.journal_name"/><td t-esc="j.account_name"/><td class="num" t-esc="fmt(j.balance)"/>
+                                        </tr>
+                                        <tr t-foreach="data.position.outstanding" t-as="o" t-key="'o' + o.account_id" class="o_elaf_cf_clickable" t-on-click="() => this.openAccountLines(o.account_id, o.account_name)">
+                                            <td>Outstanding (<t t-esc="o.kind"/>)</td><td t-esc="o.account_name"/><td class="num" t-esc="fmt(o.balance)"/>
+                                        </tr>
+                                    </tbody>
+                                </table>
+                            </div>
+                        </t>
+                    </div>
+
+                    <!-- Buckets -->
+                    <div class="o_elaf_cf_card mb-3">
+                        <h2>Forecast by <t t-if="forecast.granularity === 'day'">day</t><t t-else="">week</t> <span class="o_elaf_cf_tag forecast">Forecast</span></h2>
+                        <div class="o_elaf_cf_table_wrap">
+                            <table class="o_elaf_cf_table">
+                                <thead>
+                                    <tr>
+                                        <th>Period</th>
+                                        <th class="num">Opening</th>
+                                        <th class="num">Inflows</th>
+                                        <th class="num">Outflows</th>
+                                        <th class="num">Net</th>
+                                        <th class="num">Projected closing</th>
+                                        <th>Status</th>
+                                    </tr>
+                                </thead>
+                                <tbody>
+                                    <t t-foreach="forecast.buckets" t-as="b" t-key="b.index">
+                                        <tr t-attf-class="{{ b.shortage ? 'is-short' : '' }} {{ state.selected and state.selected.bucket === b.index ? 'is-selected' : '' }}">
+                                            <td class="o_elaf_cf_link" t-on-click="() => this.selectBucket(b.index)" t-esc="bucketLabel(b)"/>
+                                            <td class="num" t-esc="fmt(b.opening)"/>
+                                            <td class="num o_elaf_cf_link" t-on-click="() => this.selectBucket(b.index, 'in')">
+                                                <t t-esc="fmt(b.inflow)"/>
+                                                <div t-if="b.overdue_inflow" class="o_elaf_cf_sub">incl. overdue <t t-esc="fmt(b.overdue_inflow)"/></div>
+                                            </td>
+                                            <td class="num o_elaf_cf_link" t-on-click="() => this.selectBucket(b.index, 'out')">
+                                                <t t-esc="fmt(b.outflow)"/>
+                                                <div t-if="b.overdue_outflow" class="o_elaf_cf_sub">incl. overdue <t t-esc="fmt(b.overdue_outflow)"/></div>
+                                            </td>
+                                            <td t-attf-class="num {{ b.net &lt; 0 ? 'neg' : '' }}" t-esc="fmt(b.net)"/>
+                                            <td class="num strong" t-esc="fmt(b.closing)"/>
+                                            <td>
+                                                <span t-if="b.shortage" class="o_elaf_cf_pill bad">Shortage · gap <t t-esc="fmt(b.gap)"/></span>
+                                                <span t-else="" class="o_elaf_cf_pill ok">OK</span>
+                                            </td>
+                                        </tr>
+                                        <tr t-if="state.selected and state.selected.bucket === b.index" class="o_elaf_cf_detail_row">
+                                            <td colspan="7">
+                                                <div class="o_elaf_cf_detail">
+                                                    <div class="o_elaf_cf_detail_head">
+                                                        <strong>
+                                                            <t t-if="state.selected.direction === 'in'">Inflows</t>
+                                                            <t t-elif="state.selected.direction === 'out'">Outflows</t>
+                                                            <t t-else="">All flows</t>
+                                                            · <t t-esc="bucketLabel(b)"/>
+                                                        </strong>
+                                                        <div>
+                                                            <button class="btn btn-sm btn-link" t-on-click="() => this.selectBucket(b.index, null)">All</button>
+                                                            <button class="btn btn-sm btn-link" t-on-click="() => this.selectBucket(b.index, 'in')">Inflows</button>
+                                                            <button class="btn btn-sm btn-link" t-on-click="() => this.selectBucket(b.index, 'out')">Outflows</button>
+                                                            <button class="btn btn-sm btn-secondary" t-on-click="() => this.openFlowsLines(selectedFlows, bucketLabel(b))"
+                                                                    t-if="selectedFlows.some((f) => f.aml_id)">Open journal items</button>
+                                                        </div>
+                                                    </div>
+                                                    <div t-if="!selectedFlows.length" class="text-muted p-2">No flows in this period.</div>
+                                                    <table t-else="" class="o_elaf_cf_table">
+                                                        <thead><tr><th>Document</th><th>Type</th><th>Partner</th><th>Due date</th><th class="num">Amount</th></tr></thead>
+                                                        <tbody>
+                                                            <tr t-foreach="selectedFlows" t-as="f" t-key="f.key" class="o_elaf_cf_clickable" t-on-click="() => this.openDocument(f)">
+                                                                <td><t t-esc="f.name"/> <span t-if="f.overdue" class="o_elaf_cf_pill bad">Overdue <t t-esc="f.days_overdue"/>d</span>
+                                                                    <div t-if="f.note" class="o_elaf_cf_sub" t-esc="f.note"/></td>
+                                                                <td t-esc="docTypeLabel(f)"/>
+                                                                <td t-esc="f.partner_name"/>
+                                                                <td t-esc="fmtDate(f.orig_date)"/>
+                                                                <td t-attf-class="num {{ f.direction === 'out' ? 'neg' : 'pos' }}">
+                                                                    <t t-if="f.direction === 'out'">−</t><t t-esc="fmt(f.amount)"/>
+                                                                    <div t-if="f.currency" class="o_elaf_cf_sub"><t t-esc="f.amount_currency"/> <t t-esc="f.currency"/></div>
+                                                                </td>
+                                                            </tr>
+                                                        </tbody>
+                                                    </table>
+                                                    <table t-if="forecast.granularity !== 'day' and selectedDays.length" class="o_elaf_cf_table mt-2">
+                                                        <thead><tr><th>Daily detail</th><th class="num">Inflows</th><th class="num">Outflows</th><th class="num">Projected closing</th></tr></thead>
+                                                        <tbody>
+                                                            <tr t-foreach="selectedDays" t-as="d" t-key="d.date" t-att-class="d.shortage ? 'is-short' : ''">
+                                                                <td t-esc="fmtDate(d.date)"/><td class="num" t-esc="fmt(d.inflow)"/>
+                                                                <td class="num" t-esc="fmt(d.outflow)"/><td class="num" t-esc="fmt(d.closing)"/>
+                                                            </tr>
+                                                        </tbody>
+                                                    </table>
+                                                </div>
+                                            </td>
+                                        </tr>
+                                    </t>
+                                </tbody>
+                                <tfoot>
+                                    <tr class="total">
+                                        <td>Total</td>
+                                        <td class="num" t-esc="fmt(forecast.opening)"/>
+                                        <td class="num" t-esc="fmt(forecast.total_inflow)"/>
+                                        <td class="num" t-esc="fmt(forecast.total_outflow)"/>
+                                        <td class="num" t-esc="fmt(forecast.total_inflow - forecast.total_outflow)"/>
+                                        <td class="num strong" t-esc="fmt(forecast.closing)"/>
+                                        <td/>
+                                    </tr>
+                                </tfoot>
+                            </table>
+                        </div>
+                    </div>
+
+                    <!-- Inflow / outflow tables -->
+                    <div class="o_elaf_cf_grid mb-3">
+                        <t t-foreach="['in', 'out']" t-as="dir" t-key="dir">
+                            <div class="o_elaf_cf_card">
+                                <h2>
+                                    <t t-if="dir === 'in'">Expected inflows</t><t t-else="">Expected outflows</t>
+                                    <span class="o_elaf_cf_tag forecast">Forecast</span>
+                                </h2>
+                                <t t-set="rows" t-value="topFlows(dir)"/>
+                                <div t-if="!rows.length" class="text-muted">
+                                    <t t-if="dir === 'in'">No open customer invoices due in this horizon.</t>
+                                    <t t-else="">No open vendor bills due in this horizon.</t>
+                                </div>
+                                <div t-else="" class="o_elaf_cf_table_wrap o_elaf_cf_scroll">
+                                    <table class="o_elaf_cf_table">
+                                        <thead><tr><th>Document</th><th>Partner</th><th>Due</th><th>Bucket</th><th class="num">Amount</th></tr></thead>
+                                        <tbody>
+                                            <tr t-foreach="rows" t-as="f" t-key="f.key" class="o_elaf_cf_clickable" t-on-click="() => this.openDocument(f)">
+                                                <td><t t-esc="f.name"/> <span t-if="f.overdue" class="o_elaf_cf_pill bad">Overdue</span>
+                                                    <div class="o_elaf_cf_sub" t-esc="docTypeLabel(f)"/></td>
+                                                <td t-esc="f.partner_name"/>
+                                                <td t-esc="fmtDate(f.orig_date)"/>
+                                                <td t-esc="fmtDate(f.bucket_date)"/>
+                                                <td class="num"><t t-esc="fmt(f.amount)"/>
+                                                    <div t-if="f.currency" class="o_elaf_cf_sub"><t t-esc="f.amount_currency"/> <t t-esc="f.currency"/></div></td>
+                                            </tr>
+                                        </tbody>
+                                    </table>
+                                </div>
+                            </div>
+                        </t>
+                    </div>
+                </t>
+
+                <!-- Pro sections -->
+                <t t-foreach="sectionComponents" t-as="entry" t-key="entry[0]">
+                    <t t-component="entry[1]" dashboard="this" data="data" filters="state.filters"/>
+                </t>
+
+                <!-- Locked Pro features (Lite only, dashboard only) -->
+                <div t-if="!usage.is_pro" class="o_elaf_cf_card o_elaf_cf_locked mb-3">
+                    <h2>More with the Pro edition</h2>
+                    <div class="o_elaf_cf_locked_list">
+                        <span t-foreach="lockedFeatures" t-as="feat" t-key="feat_index" class="o_elaf_cf_locked_item">
+                            <i class="fa fa-lock me-1"/><t t-esc="feat"/> <span class="o_elaf_cf_pill">Pro</span>
+                        </span>
+                    </div>
+                    <div class="mt-2">
+                        <a href="#" t-on-click.prevent="openEdition">Compare Lite and Pro</a>
+                    </div>
+                </div>
+            </t>
+        </div>
+    </t>
+</templates>

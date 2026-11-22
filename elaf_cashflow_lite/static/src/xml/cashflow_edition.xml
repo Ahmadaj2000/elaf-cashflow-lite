@@ -1,0 +1,89 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<templates xml:space="preserve">
+    <t t-name="elaf_cashflow_lite.Edition">
+        <div class="o_elaf_cf_dashboard o_action">
+            <div class="o_elaf_cf_header">
+                <div>
+                    <h1>Lite vs Pro
+                        <span t-if="state.info and state.info.usage.is_pro" class="o_elaf_cf_pill ok o_elaf_cf_edition">Pro edition installed</span>
+                        <span t-elif="state.info" class="o_elaf_cf_pill o_elaf_cf_edition">Lite Edition</span>
+                    </h1>
+                    <p class="o_elaf_cf_subtitle">Cash Flow Forecast editions, with the value found in your own data.</p>
+                </div>
+                <div class="o_elaf_cf_filters">
+                    <button class="btn btn-secondary" t-on-click="openDashboard">Back to dashboard</button>
+                    <button t-if="state.info and !state.info.usage.is_pro" class="btn btn-primary" t-on-click="openPro">
+                        <i class="fa fa-external-link me-1"/>Discover Pro
+                    </button>
+                </div>
+            </div>
+            <div t-if="state.loading" class="o_elaf_cf_state"><i class="fa fa-circle-o-notch fa-spin fa-2x"/></div>
+            <div t-elif="state.error" class="o_elaf_cf_state error">
+                <div class="o_elaf_cf_state_title">Could not load edition information</div>
+                <div t-esc="state.error"/>
+            </div>
+            <t t-elif="state.info">
+                <t t-set="info" t-value="state.info"/>
+                <div class="o_elaf_cf_kpis">
+                    <div class="o_elaf_cf_kpi">
+                        <div class="o_elaf_cf_kpi_label">Forecasts saved</div>
+                        <div class="o_elaf_cf_kpi_value" t-esc="info.forecasts_count"/>
+                        <div class="o_elaf_cf_kpi_hint" t-if="!info.usage.is_pro"><t t-esc="info.usage.used"/> of <t t-esc="info.usage.limit"/> Lite calculations used</div>
+                    </div>
+                    <div t-attf-class="o_elaf_cf_kpi {{ info.shortage_forecasts ? 'is-bad' : '' }}">
+                        <div class="o_elaf_cf_kpi_label">Shortages found <span class="o_elaf_cf_tag forecast">Forecast</span></div>
+                        <div class="o_elaf_cf_kpi_value"><t t-esc="info.shortage_days"/> day(s)</div>
+                        <div class="o_elaf_cf_kpi_hint">in <t t-esc="info.shortage_forecasts"/> saved forecast(s) · largest gap <t t-esc="fmt(info.max_gap)"/></div>
+                    </div>
+                    <div t-attf-class="o_elaf_cf_kpi {{ info.overdue_receivables.amount &gt; 0 ? 'is-warn' : '' }}">
+                        <div class="o_elaf_cf_kpi_label">Overdue receivables <span class="o_elaf_cf_tag actual">Actual</span></div>
+                        <div class="o_elaf_cf_kpi_value" t-esc="fmt(info.overdue_receivables.amount)"/>
+                        <div class="o_elaf_cf_kpi_hint"><t t-esc="info.overdue_receivables.count"/> invoice(s) to collect</div>
+                    </div>
+                </div>
+                <div class="o_elaf_cf_grid">
+                    <div class="o_elaf_cf_card">
+                        <h2>Features</h2>
+                        <div class="o_elaf_cf_table_wrap">
+                            <table class="o_elaf_cf_table o_elaf_cf_compare">
+                                <thead><tr><th>Capability</th><th>Lite (free)</th><th>Pro</th></tr></thead>
+                                <tbody>
+                                    <tr t-foreach="rows" t-as="row" t-key="row_index">
+                                        <td t-esc="row[0]"/>
+                                        <td t-attf-class="{{ row[1] === '—' ? 'o_elaf_cf_no' : '' }}">
+                                            <t t-esc="row[1]"/>
+                                            <span t-if="row[1] === '—'" class="o_elaf_cf_pill ms-1"><i class="fa fa-lock me-1"/>Pro</span>
+                                        </td>
+                                        <td class="o_elaf_cf_yes" t-esc="row[2]"/>
+                                    </tr>
+                                </tbody>
+                            </table>
+                        </div>
+                    </div>
+                    <div class="o_elaf_cf_card">
+                        <h2>Lite edition limits</h2>
+                        <ul>
+                            <li>One company<t t-if="info.usage.bound_company"> (bound to <strong t-esc="info.usage.bound_company"/>)</t>.</li>
+                            <li>Forecast horizon of 7 days with daily buckets.</li>
+                            <li>Up to <t t-esc="info.usage.limit"/> forecast calculations in total. Generating and saving a forecast counts as one; viewing saved forecasts is always free.</li>
+                            <li>Manual forecasts only. No scenarios, collection prioritisation, payment recommendations, consolidation, automatic forecasts or exports.</li>
+                            <li>When the allowance is used, your saved forecasts and the live cash position stay available.</li>
+                        </ul>
+                        <h2 class="mt-3">What Pro would add with your data</h2>
+                        <ul>
+                            <li t-if="info.shortage_forecasts">Your saved 7-day forecasts already show <strong t-esc="info.shortage_days"/> day(s) below the threshold. Pro looks 30, 60 or 90 days ahead, so you see shortages weeks earlier.</li>
+                            <li t-else="">No shortage found within 7 days so far. Pro looks 30, 60 or 90 days ahead.</li>
+                            <li t-if="info.overdue_receivables.amount &gt; 0"><strong t-esc="fmt(info.overdue_receivables.amount)"/> is overdue from customers. Pro ranks these invoices by amount, delay and customer payment behaviour and schedules follow-ups.</li>
+                            <li>Scenarios test assumptions such as later customer payments or a lower collection rate before they happen.</li>
+                        </ul>
+                        <h2 class="mt-3">How upgrading works</h2>
+                        <p>Install the Pro module (Cash Flow Forecast, technical name <code>elaf_cashflow</code>). All your data,
+                            settings, saved forecasts and history are kept, and the limits disappear.</p>
+                        <p class="text-muted small">The Discover Pro link opens the Odoo Apps listing once it is published.
+                            Support: <t t-esc="info.support"/></p>
+                    </div>
+                </div>
+            </t>
+        </div>
+    </t>
+</templates>
