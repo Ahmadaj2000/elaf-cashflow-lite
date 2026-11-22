@@ -1,0 +1,63 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<templates xml:space="preserve">
+    <t t-name="elaf_cashflow_lite.Chart">
+        <t t-set="m" t-value="model"/>
+        <div class="o_elaf_cf_chart_wrap">
+            <svg class="o_elaf_cf_chart" t-att-viewBox="'0 0 ' + W + ' ' + H" role="img" direction="ltr"
+                 t-att-aria-label="'Actual balance and forecast projected balance'">
+                <defs>
+                    <pattern id="o_elaf_cf_hatch" patternUnits="userSpaceOnUse" width="6" height="6" patternTransform="rotate(45)">
+                        <rect width="6" height="6" fill="#c9eef4"/>
+                        <line x1="0" y1="0" x2="0" y2="6" stroke="#1098ad" stroke-width="2"/>
+                    </pattern>
+                    <pattern id="o_elaf_cf_hatch_bad" patternUnits="userSpaceOnUse" width="6" height="6" patternTransform="rotate(45)">
+                        <rect width="6" height="6" fill="#fbe0e0"/>
+                        <line x1="0" y1="0" x2="0" y2="6" stroke="#c92a2a" stroke-width="2"/>
+                    </pattern>
+                </defs>
+                <t t-foreach="m.ticks" t-as="tick" t-key="tick_index">
+                    <line class="grid" t-att-x1="pad.l" t-att-x2="m.plotRight" t-att-y1="tick.y" t-att-y2="tick.y"/>
+                    <text class="tick" t-att-x="pad.l - 8" t-att-y="tick.y + 4" text-anchor="end" t-esc="tick.label"/>
+                </t>
+                <line class="axis" t-att-x1="pad.l" t-att-x2="m.plotRight" t-att-y1="m.zeroY" t-att-y2="m.zeroY"/>
+                <!-- Actual -->
+                <rect class="bar actual" t-att-x="m.actual.x" t-att-y="m.actual.y" t-att-width="m.actual.w" t-att-height="m.actual.h">
+                    <title t-esc="'Actual: ' + props.format(m.actual.value)"/>
+                </rect>
+                <text class="xlabel strong" t-att-x="m.actual.x + m.actual.w / 2" t-att-y="H - pad.b + 16" text-anchor="middle" t-esc="m.actual.label"/>
+                <!-- Forecast bars (hatched) -->
+                <t t-foreach="m.fbars" t-as="b" t-key="b.index">
+                    <rect t-att-class="'bar forecast' + (b.shortage ? ' short' : '') + (props.selected === b.index ? ' selected' : '')"
+                          t-att-x="b.x" t-att-y="b.y" t-att-width="b.w" t-att-height="b.h"
+                          t-att-style="b.shortage ? 'fill: url(#o_elaf_cf_hatch_bad)' : 'fill: url(#o_elaf_cf_hatch)'"
+                          t-on-click="() => this.select(b.index)">
+                        <title t-esc="'Forecast ' + b.label + ': ' + props.format(b.value)"/>
+                    </rect>
+                    <text t-if="b_index % m.labelEvery === 0" class="xlabel" t-att-x="b.cx" t-att-y="H - pad.b + 16" text-anchor="middle" t-esc="b.label"/>
+                </t>
+                <!-- Threshold -->
+                <line class="threshold" t-att-x1="pad.l" t-att-x2="m.plotRight" t-att-y1="m.thresholdY" t-att-y2="m.thresholdY"/>
+                <!-- Forecast line (dashed) -->
+                <polyline class="line o_elaf_cf_forecast" t-att-points="m.line"/>
+                <t t-foreach="m.fbars" t-as="b" t-key="'p' + b.index">
+                    <circle t-att-class="'dot' + (b.shortage ? ' short' : '')" t-att-cx="b.cx" t-att-cy="b.cy" r="4"
+                            t-on-click="() => this.select(b.index)"/>
+                </t>
+                <!-- Extra scenario lines (Pro) -->
+                <t t-foreach="m.extra" t-as="line" t-key="line_index">
+                    <polyline class="line o_elaf_cf_forecast extra" t-att-points="line.points" t-att-style="'stroke:' + line.color"/>
+                </t>
+            </svg>
+            <div class="o_elaf_cf_legend">
+                <span><i class="sw actual"/> Actual balance (posted, today)</span>
+                <span><i class="sw forecast"/> Forecast projected balance (estimate)</span>
+                <span><i class="sw line"/> Forecast trend</span>
+                <span><i class="sw threshold"/> Minimum cash threshold</span>
+                <span><i class="sw short"/> Shortage</span>
+                <t t-foreach="props.extraLines || []" t-as="line" t-key="'l' + line_index">
+                    <span><i class="sw line" t-att-style="'border-color:' + line.color"/> <t t-esc="line.label"/></span>
+                </t>
+            </div>
+        </div>
+    </t>
+</templates>
