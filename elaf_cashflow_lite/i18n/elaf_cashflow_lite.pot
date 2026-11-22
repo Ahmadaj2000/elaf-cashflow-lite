@@ -1,0 +1,2378 @@
+# Translation of Odoo Server.
+# This file contains the translation of the following modules:
+# 	* elaf_cashflow_lite
+#
+msgid ""
+msgstr ""
+"Project-Id-Version: Odoo Server 19.0-20261102\n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2026-11-22 08:36+0000\n"
+"PO-Revision-Date: 2026-11-22 08:36+0000\n"
+"Last-Translator: \n"
+"Language-Team: \n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: \n"
+"Plural-Forms: \n"
+
+#. module: elaf_cashflow_lite
+#. odoo-javascript
+#: code:addons/elaf_cashflow_lite/static/src/js/cashflow_edition.js:0
+msgid "%s in total"
+msgstr ""
+
+#. module: elaf_cashflow_lite
+#. odoo-javascript
+#: code:addons/elaf_cashflow_lite/static/src/xml/cashflow_dashboard.xml:0
+msgid "(UTC) by"
+msgstr ""
+
+#. module: elaf_cashflow_lite
+#. odoo-javascript
+#: code:addons/elaf_cashflow_lite/static/src/xml/cashflow_edition.xml:0
+msgid "(bound to"
+msgstr ""
+
+#. module: elaf_cashflow_lite
+#. odoo-javascript
+#: code:addons/elaf_cashflow_lite/static/src/xml/cashflow_dashboard.xml:0
+msgid "(cap disabled)"
+msgstr ""
+
+#. module: elaf_cashflow_lite
+#. odoo-javascript
+#: code:addons/elaf_cashflow_lite/static/src/xml/cashflow_dashboard.xml:0
+msgid "(overdue included in the first bucket:"
+msgstr ""
+
+#. module: elaf_cashflow_lite
+#. odoo-javascript
+#: code:addons/elaf_cashflow_lite/static/src/xml/cashflow_dashboard.xml:0
+msgid "(overdue included:"
+msgstr ""
+
+#. module: elaf_cashflow_lite
+#. odoo-javascript
+#: code:addons/elaf_cashflow_lite/static/src/xml/cashflow_dashboard.xml:0
+msgid ") by"
+msgstr ""
+
+#. module: elaf_cashflow_lite
+#. odoo-javascript
+#: code:addons/elaf_cashflow_lite/static/src/xml/cashflow_dashboard.xml:0
+msgid ") until"
+msgstr ""
+
+#. module: elaf_cashflow_lite
+#. odoo-javascript
+#: code:addons/elaf_cashflow_lite/static/src/xml/cashflow_dashboard.xml:0
+msgid ""
+").\n"
+"                    Your saved forecasts stay available. The Pro edition removes this limit."
+msgstr ""
+
+#. module: elaf_cashflow_lite
+#. odoo-javascript
+#: code:addons/elaf_cashflow_lite/static/src/xml/cashflow_edition.xml:0
+msgid ""
+"). All your data,\n"
+"                            settings, saved forecasts and history are kept, and the limits disappear."
+msgstr ""
+
+#. module: elaf_cashflow_lite
+#: model_terms:ir.ui.view,arch_db:elaf_cashflow_lite.elaf_cf_forecast_form
+msgid "+ Expected inflows"
+msgstr ""
+
+#. module: elaf_cashflow_lite
+#. odoo-javascript
+#: code:addons/elaf_cashflow_lite/static/src/xml/cashflow_dashboard.xml:0
+msgid "+ Expected inflows: open customer invoice residuals due by"
+msgstr ""
+
+#. module: elaf_cashflow_lite
+#. odoo-javascript
+#: code:addons/elaf_cashflow_lite/static/src/xml/cashflow_dashboard.xml:0
+msgid ""
+",\n"
+"                            calculated"
+msgstr ""
+
+#. module: elaf_cashflow_lite
+#: model_terms:ir.ui.view,arch_db:elaf_cashflow_lite.elaf_cf_forecast_form
+msgid "- Expected outflows"
+msgstr ""
+
+#. module: elaf_cashflow_lite
+#. odoo-javascript
+#: code:addons/elaf_cashflow_lite/static/src/xml/cashflow_dashboard.xml:0
+msgid ""
+".\n"
+"                            Figures are a snapshot of that moment; generate a new forecast for current figures."
+msgstr ""
+
+#. module: elaf_cashflow_lite
+#. odoo-javascript
+#: code:addons/elaf_cashflow_lite/static/src/xml/cashflow_dashboard.xml:0
+msgid ""
+".\n"
+"                        Lowest projected balance"
+msgstr ""
+
+#. module: elaf_cashflow_lite
+#. odoo-javascript
+#: code:addons/elaf_cashflow_lite/static/src/xml/cashflow_dashboard.xml:0
+msgid ""
+".\n"
+"                    You can view this company's actual cash position; generating forecasts here needs the Pro edition."
+msgstr ""
+
+#. module: elaf_cashflow_lite
+#. odoo-javascript
+#: code:addons/elaf_cashflow_lite/static/src/js/cashflow_dashboard.js:0
+msgid "30/60/90-day horizons (weekly buckets)"
+msgstr ""
+
+#. module: elaf_cashflow_lite
+#: model:ir.model.fields.selection,name:elaf_cashflow_lite.selection__elaf_cashflow_forecast__horizon__7
+msgid "7 days"
+msgstr ""
+
+#. module: elaf_cashflow_lite
+#. odoo-javascript
+#: code:addons/elaf_cashflow_lite/static/src/js/cashflow_edition.js:0
+msgid "7 days, daily buckets"
+msgstr ""
+
+#. module: elaf_cashflow_lite
+#. odoo-javascript
+#: code:addons/elaf_cashflow_lite/static/src/js/cashflow_edition.js:0
+msgid "7, 30, 60 or 90 days (weekly buckets)"
+msgstr ""
+
+#. module: elaf_cashflow_lite
+#. odoo-javascript
+#: code:addons/elaf_cashflow_lite/static/src/xml/cashflow_dashboard.xml:0
+msgid ""
+": the projected balance falls below the\n"
+"                        minimum cash threshold ("
+msgstr ""
+
+#. module: elaf_cashflow_lite
+#: model_terms:ir.ui.view,arch_db:elaf_cashflow_lite.elaf_cf_forecast_form
+msgid ""
+"<strong>Liquidity shortage (forecast):</strong>\n"
+"                        the projected balance falls below the minimum cash threshold on"
+msgstr ""
+
+#. module: elaf_cashflow_lite
+#. odoo-javascript
+#: code:addons/elaf_cashflow_lite/static/src/xml/cashflow_dashboard.xml:0
+msgid "= Opening balance"
+msgstr ""
+
+#. module: elaf_cashflow_lite
+#: model_terms:ir.ui.view,arch_db:elaf_cashflow_lite.elaf_cf_forecast_form
+msgid "= Projected closing (forecast)"
+msgstr ""
+
+#. module: elaf_cashflow_lite
+#. odoo-javascript
+#: code:addons/elaf_cashflow_lite/static/src/xml/cashflow_dashboard.xml:0
+msgid "= Projected closing balance (forecast)"
+msgstr ""
+
+#. module: elaf_cashflow_lite
+#. odoo-javascript
+#: code:addons/elaf_cashflow_lite/static/src/xml/cashflow_dashboard.xml:0
+msgid ""
+"A bucket is a shortage when its lowest daily projected balance is below the "
+"minimum cash threshold; the gap is threshold − lowest balance."
+msgstr ""
+
+#. module: elaf_cashflow_lite
+#. odoo-python
+#: code:addons/elaf_cashflow_lite/models/elaf_cashflow_forecast.py:0
+msgid ""
+"A computed forecast is a saved snapshot and cannot be changed. Generate a "
+"new forecast instead."
+msgstr ""
+
+#. module: elaf_cashflow_lite
+#: model_terms:ir.actions.act_window,help:elaf_cashflow_lite.action_forecasts
+msgid ""
+"A forecast projects your actual bank and cash balance with open customer invoices\n"
+"               and vendor bills, and flags days below your minimum cash threshold."
+msgstr ""
+
+#. module: elaf_cashflow_lite
+#. odoo-javascript
+#: code:addons/elaf_cashflow_lite/static/src/xml/cashflow_dashboard.xml:0
+msgid "Account"
+msgstr ""
+
+#. module: elaf_cashflow_lite
+#: model:ir.model.fields,field_description:elaf_cashflow_lite.field_elaf_cashflow_forecast__message_needaction
+msgid "Action Needed"
+msgstr ""
+
+#. module: elaf_cashflow_lite
+#. odoo-javascript
+#: code:addons/elaf_cashflow_lite/static/src/xml/cashflow_dashboard.xml:0
+#: code:addons/elaf_cashflow_lite/static/src/xml/cashflow_edition.xml:0
+msgid "Actual"
+msgstr ""
+
+#. module: elaf_cashflow_lite
+#: model:ir.model.fields,field_description:elaf_cashflow_lite.field_elaf_cashflow_forecast__cash_actual
+msgid "Actual Bank and Cash"
+msgstr ""
+
+#. module: elaf_cashflow_lite
+#. odoo-javascript
+#: code:addons/elaf_cashflow_lite/static/src/xml/cashflow_chart.xml:0
+msgid "Actual balance (posted, today)"
+msgstr ""
+
+#. module: elaf_cashflow_lite
+#. odoo-javascript
+#: code:addons/elaf_cashflow_lite/static/src/xml/cashflow_dashboard.xml:0
+msgid "Actual bank and cash balance (posted,"
+msgstr ""
+
+#. module: elaf_cashflow_lite
+#. odoo-javascript
+#: code:addons/elaf_cashflow_lite/static/src/js/cashflow_dashboard.js:0
+msgid "Actual bank and cash journal items"
+msgstr ""
+
+#. module: elaf_cashflow_lite
+#. odoo-javascript
+#: code:addons/elaf_cashflow_lite/static/src/js/cashflow_edition.js:0
+msgid "Actual cash position (bank, cash, outstanding payments)"
+msgstr ""
+
+#. module: elaf_cashflow_lite
+#. odoo-javascript
+#: code:addons/elaf_cashflow_lite/static/src/xml/cashflow_dashboard.xml:0
+msgid "Actual vs forecast balance"
+msgstr ""
+
+#. module: elaf_cashflow_lite
+#: model:ir.model.fields,help:elaf_cashflow_lite.field_elaf_cashflow_forecast__cash_actual
+msgid "Actual: posted balance of the bank and cash journal accounts."
+msgstr ""
+
+#. module: elaf_cashflow_lite
+#: model:ir.model.fields,help:elaf_cashflow_lite.field_elaf_cashflow_settings__include_outstanding
+msgid ""
+"Add outstanding receipts and subtract outstanding payments (registered "
+"payments not yet matched with a bank statement) to the opening balance of "
+"the forecast."
+msgstr ""
+
+#. module: elaf_cashflow_lite
+#: model_terms:ir.ui.view,arch_db:elaf_cashflow_lite.res_config_settings_view_form_elaf_cashflow
+msgid ""
+"Add outstanding receipts and subtract outstanding payments in the opening "
+"balance."
+msgstr ""
+
+#. module: elaf_cashflow_lite
+#. odoo-javascript
+#: code:addons/elaf_cashflow_lite/static/src/xml/cashflow_dashboard.xml:0
+msgid "All"
+msgstr ""
+
+#. module: elaf_cashflow_lite
+#. odoo-javascript
+#: code:addons/elaf_cashflow_lite/static/src/xml/cashflow_dashboard.xml:0
+msgid "All flows"
+msgstr ""
+
+#. module: elaf_cashflow_lite
+#. odoo-javascript
+#: code:addons/elaf_cashflow_lite/static/src/xml/cashflow_dashboard.xml:0
+msgid "All saved forecasts"
+msgstr ""
+
+#. module: elaf_cashflow_lite
+#: model:res.groups,comment:elaf_cashflow_lite.group_cashflow_manager
+msgid "Also edit the minimum cash threshold and delete forecasts."
+msgstr ""
+
+#. module: elaf_cashflow_lite
+#. odoo-javascript
+#: code:addons/elaf_cashflow_lite/static/src/xml/cashflow_dashboard.xml:0
+#: model:ir.model.fields,field_description:elaf_cashflow_lite.field_elaf_cashflow_forecast_flow__amount
+msgid "Amount"
+msgstr ""
+
+#. module: elaf_cashflow_lite
+#: model_terms:ir.ui.view,arch_db:elaf_cashflow_lite.elaf_cf_move_line_list
+msgid "Amount (company currency)"
+msgstr ""
+
+#. module: elaf_cashflow_lite
+#: model:ir.model.fields,help:elaf_cashflow_lite.field_elaf_cashflow_forecast_flow__amount
+msgid ""
+"Amount in company currency (foreign residuals converted at the forecast "
+"date)."
+msgstr ""
+
+#. module: elaf_cashflow_lite
+#. odoo-javascript
+#: code:addons/elaf_cashflow_lite/static/src/xml/cashflow_dashboard.xml:0
+msgid ""
+"Amounts are in company currency; foreign-currency residuals are converted at"
+" the rate of the forecast date."
+msgstr ""
+
+#. module: elaf_cashflow_lite
+#: model:ir.model.fields,field_description:elaf_cashflow_lite.field_elaf_cashflow_usage_log__at
+msgid "At"
+msgstr ""
+
+#. module: elaf_cashflow_lite
+#: model:ir.model.fields,field_description:elaf_cashflow_lite.field_elaf_cashflow_forecast__message_attachment_count
+msgid "Attachment Count"
+msgstr ""
+
+#. module: elaf_cashflow_lite
+#. odoo-javascript
+#: code:addons/elaf_cashflow_lite/static/src/xml/cashflow_edition.xml:0
+msgid "Back to dashboard"
+msgstr ""
+
+#. module: elaf_cashflow_lite
+#. odoo-javascript
+#: code:addons/elaf_cashflow_lite/static/src/xml/cashflow_dashboard.xml:0
+msgid "Balance"
+msgstr ""
+
+#. module: elaf_cashflow_lite
+#. odoo-javascript
+#: code:addons/elaf_cashflow_lite/static/src/js/cashflow_dashboard.js:0
+#: model:ir.model.fields.selection,name:elaf_cashflow_lite.selection__elaf_cashflow_forecast_flow__doc_type__bill
+msgid "Bill"
+msgstr ""
+
+#. module: elaf_cashflow_lite
+#: model:ir.model.fields,field_description:elaf_cashflow_lite.field_elaf_cashflow_usage__bound_company_id
+msgid "Bound Company"
+msgstr ""
+
+#. module: elaf_cashflow_lite
+#. odoo-javascript
+#: code:addons/elaf_cashflow_lite/static/src/xml/cashflow_dashboard.xml:0
+#: model:ir.model.fields,field_description:elaf_cashflow_lite.field_elaf_cashflow_forecast_flow__line_id
+#: model_terms:ir.ui.view,arch_db:elaf_cashflow_lite.elaf_cf_flow_search
+msgid "Bucket"
+msgstr ""
+
+#. module: elaf_cashflow_lite
+#: model:ir.model.fields,field_description:elaf_cashflow_lite.field_elaf_cashflow_forecast_flow__bucket_date
+msgid "Bucket Date"
+msgstr ""
+
+#. module: elaf_cashflow_lite
+#: model:ir.model.fields,field_description:elaf_cashflow_lite.field_elaf_cashflow_forecast__line_ids
+msgid "Buckets"
+msgstr ""
+
+#. module: elaf_cashflow_lite
+#: model_terms:ir.ui.view,arch_db:elaf_cashflow_lite.elaf_cf_forecast_form
+msgid "Buckets (forecast)"
+msgstr ""
+
+#. module: elaf_cashflow_lite
+#: model_terms:ir.ui.view,arch_db:elaf_cashflow_lite.elaf_cf_settings_form
+msgid "Cancel"
+msgstr ""
+
+#. module: elaf_cashflow_lite
+#. odoo-javascript
+#: code:addons/elaf_cashflow_lite/static/src/xml/cashflow_edition.xml:0
+msgid "Capability"
+msgstr ""
+
+#. module: elaf_cashflow_lite
+#. odoo-javascript
+#. odoo-python
+#: code:addons/elaf_cashflow_lite/models/elaf_cashflow_forecast.py:0
+#: code:addons/elaf_cashflow_lite/static/src/xml/cashflow_dashboard.xml:0
+#: model:ir.actions.client,name:elaf_cashflow_lite.action_dashboard
+#: model:ir.ui.menu,name:elaf_cashflow_lite.menu_root
+#: model_terms:ir.ui.view,arch_db:elaf_cashflow_lite.res_config_settings_view_form_elaf_cashflow
+msgid "Cash Flow"
+msgstr ""
+
+#. module: elaf_cashflow_lite
+#: model:ir.model,name:elaf_cashflow_lite.model_elaf_cashflow_forecast
+#: model:res.groups.privilege,name:elaf_cashflow_lite.res_groups_privilege_cashflow
+msgid "Cash Flow Forecast"
+msgstr ""
+
+#. module: elaf_cashflow_lite
+#: model:ir.model,name:elaf_cashflow_lite.model_elaf_cashflow_forecast_line
+msgid "Cash Flow Forecast Bucket"
+msgstr ""
+
+#. module: elaf_cashflow_lite
+#: model:ir.model,name:elaf_cashflow_lite.model_elaf_cashflow_forecast_day
+msgid "Cash Flow Forecast Daily Detail"
+msgstr ""
+
+#. module: elaf_cashflow_lite
+#: model:ir.model,name:elaf_cashflow_lite.model_elaf_cashflow_engine
+msgid "Cash Flow Forecast Engine"
+msgstr ""
+
+#. module: elaf_cashflow_lite
+#: model:ir.model,name:elaf_cashflow_lite.model_elaf_cashflow_forecast_flow
+msgid "Cash Flow Forecast Flow"
+msgstr ""
+
+#. module: elaf_cashflow_lite
+#. odoo-javascript
+#: code:addons/elaf_cashflow_lite/static/src/xml/cashflow_edition.xml:0
+msgid "Cash Flow Forecast editions, with the value found in your own data."
+msgstr ""
+
+#. module: elaf_cashflow_lite
+#. odoo-javascript
+#: code:addons/elaf_cashflow_lite/static/src/js/cashflow_dashboard.js:0
+msgid "Cash Flow Lite"
+msgstr ""
+
+#. module: elaf_cashflow_lite
+#: model:ir.model,name:elaf_cashflow_lite.model_elaf_cashflow_usage
+msgid "Cash Flow Lite Usage Counter"
+msgstr ""
+
+#. module: elaf_cashflow_lite
+#: model:ir.model,name:elaf_cashflow_lite.model_elaf_cashflow_usage_log
+msgid "Cash Flow Lite Usage Log"
+msgstr ""
+
+#. module: elaf_cashflow_lite
+#: model:ir.actions.act_window,name:elaf_cashflow_lite.action_settings
+#: model:ir.model,name:elaf_cashflow_lite.model_elaf_cashflow_settings
+#: model_terms:ir.ui.view,arch_db:elaf_cashflow_lite.elaf_cf_settings_form
+msgid "Cash Flow Settings"
+msgstr ""
+
+#. module: elaf_cashflow_lite
+#. odoo-python
+#: code:addons/elaf_cashflow_lite/models/elaf_cashflow_engine.py:0
+msgid "Cash Journal Items"
+msgstr ""
+
+#. module: elaf_cashflow_lite
+#. odoo-javascript
+#: code:addons/elaf_cashflow_lite/static/src/xml/cashflow_dashboard.xml:0
+msgid "Cash position"
+msgstr ""
+
+#. module: elaf_cashflow_lite
+#: model_terms:ir.ui.view,arch_db:elaf_cashflow_lite.elaf_cf_settings_form
+msgid ""
+"Changes apply to the next forecast. Saved forecasts keep the threshold used at the time\n"
+"                        they were calculated."
+msgstr ""
+
+#. module: elaf_cashflow_lite
+#. odoo-javascript
+#: code:addons/elaf_cashflow_lite/static/src/xml/cashflow_dashboard.xml:0
+msgid "Check sources"
+msgstr ""
+
+#. module: elaf_cashflow_lite
+#. odoo-javascript
+#: code:addons/elaf_cashflow_lite/static/src/xml/cashflow_dashboard.xml:0
+msgid "Check: opening + inflows − outflows − closing"
+msgstr ""
+
+#. module: elaf_cashflow_lite
+#. odoo-javascript
+#: code:addons/elaf_cashflow_lite/static/src/js/cashflow_dashboard.js:0
+msgid "Collection prioritisation and follow-ups"
+msgstr ""
+
+#. module: elaf_cashflow_lite
+#. odoo-javascript
+#: code:addons/elaf_cashflow_lite/static/src/js/cashflow_edition.js:0
+msgid "Collection prioritisation with follow-up activities"
+msgstr ""
+
+#. module: elaf_cashflow_lite
+#. odoo-javascript
+#: code:addons/elaf_cashflow_lite/static/src/js/cashflow_edition.js:0
+#: model:ir.model,name:elaf_cashflow_lite.model_res_company
+msgid "Companies"
+msgstr ""
+
+#. module: elaf_cashflow_lite
+#: model:ir.model.fields,field_description:elaf_cashflow_lite.field_elaf_cashflow_forecast__company_id
+#: model:ir.model.fields,field_description:elaf_cashflow_lite.field_elaf_cashflow_forecast_day__company_id
+#: model:ir.model.fields,field_description:elaf_cashflow_lite.field_elaf_cashflow_forecast_flow__company_id
+#: model:ir.model.fields,field_description:elaf_cashflow_lite.field_elaf_cashflow_forecast_line__company_id
+#: model:ir.model.fields,field_description:elaf_cashflow_lite.field_elaf_cashflow_settings__company_id
+#: model_terms:ir.ui.view,arch_db:elaf_cashflow_lite.elaf_cf_forecast_search
+msgid "Company"
+msgstr ""
+
+#. module: elaf_cashflow_lite
+#. odoo-javascript
+#: code:addons/elaf_cashflow_lite/static/src/xml/cashflow_dashboard.xml:0
+msgid "Compare Lite and Pro"
+msgstr ""
+
+#. module: elaf_cashflow_lite
+#: model:ir.model.fields.selection,name:elaf_cashflow_lite.selection__elaf_cashflow_forecast__state__done
+#: model_terms:ir.ui.view,arch_db:elaf_cashflow_lite.elaf_cf_forecast_search
+msgid "Computed"
+msgstr ""
+
+#. module: elaf_cashflow_lite
+#: model:ir.model.fields,field_description:elaf_cashflow_lite.field_elaf_cashflow_forecast__computed_at
+msgid "Computed At"
+msgstr ""
+
+#. module: elaf_cashflow_lite
+#: model:ir.model.fields,field_description:elaf_cashflow_lite.field_elaf_cashflow_forecast__computed_by_id
+msgid "Computed By"
+msgstr ""
+
+#. module: elaf_cashflow_lite
+#: model_terms:ir.ui.view,arch_db:elaf_cashflow_lite.elaf_cf_forecast_form
+msgid ""
+"Computes and saves this forecast. Counts as one forecast calculation in the "
+"Lite edition."
+msgstr ""
+
+#. module: elaf_cashflow_lite
+#: model:ir.model,name:elaf_cashflow_lite.model_res_config_settings
+msgid "Config Settings"
+msgstr ""
+
+#. module: elaf_cashflow_lite
+#: model:ir.ui.menu,name:elaf_cashflow_lite.menu_config
+msgid "Configuration"
+msgstr ""
+
+#. module: elaf_cashflow_lite
+#: model:ir.model.fields.selection,name:elaf_cashflow_lite.selection__elaf_cashflow_usage_log__event__consumed
+msgid "Consumed"
+msgstr ""
+
+#. module: elaf_cashflow_lite
+#. odoo-javascript
+#: code:addons/elaf_cashflow_lite/static/src/xml/cashflow_edition.xml:0
+msgid "Could not load edition information"
+msgstr ""
+
+#. module: elaf_cashflow_lite
+#. odoo-javascript
+#: code:addons/elaf_cashflow_lite/static/src/xml/cashflow_dashboard.xml:0
+msgid "Could not load the dashboard"
+msgstr ""
+
+#. module: elaf_cashflow_lite
+#: model:ir.model.fields,field_description:elaf_cashflow_lite.field_elaf_cashflow_forecast__create_uid
+#: model:ir.model.fields,field_description:elaf_cashflow_lite.field_elaf_cashflow_forecast_day__create_uid
+#: model:ir.model.fields,field_description:elaf_cashflow_lite.field_elaf_cashflow_forecast_flow__create_uid
+#: model:ir.model.fields,field_description:elaf_cashflow_lite.field_elaf_cashflow_forecast_line__create_uid
+#: model:ir.model.fields,field_description:elaf_cashflow_lite.field_elaf_cashflow_settings__create_uid
+#: model:ir.model.fields,field_description:elaf_cashflow_lite.field_elaf_cashflow_usage__create_uid
+#: model:ir.model.fields,field_description:elaf_cashflow_lite.field_elaf_cashflow_usage_log__create_uid
+msgid "Created by"
+msgstr ""
+
+#. module: elaf_cashflow_lite
+#: model:ir.model.fields,field_description:elaf_cashflow_lite.field_elaf_cashflow_forecast__create_date
+#: model:ir.model.fields,field_description:elaf_cashflow_lite.field_elaf_cashflow_forecast_day__create_date
+#: model:ir.model.fields,field_description:elaf_cashflow_lite.field_elaf_cashflow_forecast_flow__create_date
+#: model:ir.model.fields,field_description:elaf_cashflow_lite.field_elaf_cashflow_forecast_line__create_date
+#: model:ir.model.fields,field_description:elaf_cashflow_lite.field_elaf_cashflow_settings__create_date
+#: model:ir.model.fields,field_description:elaf_cashflow_lite.field_elaf_cashflow_usage__create_date
+#: model:ir.model.fields,field_description:elaf_cashflow_lite.field_elaf_cashflow_usage_log__create_date
+msgid "Created on"
+msgstr ""
+
+#. module: elaf_cashflow_lite
+#. odoo-javascript
+#: code:addons/elaf_cashflow_lite/static/src/js/cashflow_dashboard.js:0
+#: model:ir.model.fields.selection,name:elaf_cashflow_lite.selection__elaf_cashflow_forecast_flow__doc_type__credit_note
+msgid "Credit note"
+msgstr ""
+
+#. module: elaf_cashflow_lite
+#: model:ir.model.fields,field_description:elaf_cashflow_lite.field_elaf_cashflow_forecast__currency_id
+#: model:ir.model.fields,field_description:elaf_cashflow_lite.field_elaf_cashflow_forecast_day__currency_id
+#: model:ir.model.fields,field_description:elaf_cashflow_lite.field_elaf_cashflow_forecast_flow__currency_id
+#: model:ir.model.fields,field_description:elaf_cashflow_lite.field_elaf_cashflow_forecast_line__currency_id
+#: model:ir.model.fields,field_description:elaf_cashflow_lite.field_elaf_cashflow_settings__currency_id
+msgid "Currency"
+msgstr ""
+
+#. module: elaf_cashflow_lite
+#: model:ir.model.fields.selection,name:elaf_cashflow_lite.selection__elaf_cashflow_forecast_flow__source__receivable
+msgid "Customer invoice"
+msgstr ""
+
+#. module: elaf_cashflow_lite
+#. odoo-javascript
+#: code:addons/elaf_cashflow_lite/static/src/js/cashflow_edition.js:0
+msgid "Customer payment behaviour"
+msgstr ""
+
+#. module: elaf_cashflow_lite
+#. odoo-javascript
+#: code:addons/elaf_cashflow_lite/static/src/js/cashflow_dashboard.js:0
+msgid "DSO / DPO working capital"
+msgstr ""
+
+#. module: elaf_cashflow_lite
+#: model:ir.model.fields.selection,name:elaf_cashflow_lite.selection__elaf_cashflow_forecast__granularity__day
+msgid "Daily"
+msgstr ""
+
+#. module: elaf_cashflow_lite
+#: model:ir.model.fields,field_description:elaf_cashflow_lite.field_elaf_cashflow_forecast__day_ids
+msgid "Daily Detail"
+msgstr ""
+
+#. module: elaf_cashflow_lite
+#. odoo-javascript
+#: code:addons/elaf_cashflow_lite/static/src/xml/cashflow_dashboard.xml:0
+#: model_terms:ir.ui.view,arch_db:elaf_cashflow_lite.elaf_cf_forecast_form
+msgid "Daily detail"
+msgstr ""
+
+#. module: elaf_cashflow_lite
+#: model:ir.ui.menu,name:elaf_cashflow_lite.menu_dashboard
+msgid "Dashboard"
+msgstr ""
+
+#. module: elaf_cashflow_lite
+#: model:ir.model.fields,field_description:elaf_cashflow_lite.field_elaf_cashflow_forecast_day__date
+msgid "Date"
+msgstr ""
+
+#. module: elaf_cashflow_lite
+#: model:ir.model.fields,field_description:elaf_cashflow_lite.field_elaf_cashflow_forecast__shortage_days
+msgid "Days Below Threshold"
+msgstr ""
+
+#. module: elaf_cashflow_lite
+#: model:ir.model.fields,field_description:elaf_cashflow_lite.field_elaf_cashflow_forecast_flow__days_overdue
+msgid "Days Overdue"
+msgstr ""
+
+#. module: elaf_cashflow_lite
+#: model:ir.model.fields.selection,name:elaf_cashflow_lite.selection__elaf_cashflow_usage_log__event__denied
+msgid "Denied"
+msgstr ""
+
+#. module: elaf_cashflow_lite
+#. odoo-javascript
+#: code:addons/elaf_cashflow_lite/static/src/xml/cashflow_dashboard.xml:0
+msgid "Difference"
+msgstr ""
+
+#. module: elaf_cashflow_lite
+#: model:ir.model.fields,field_description:elaf_cashflow_lite.field_elaf_cashflow_forecast_flow__direction
+msgid "Direction"
+msgstr ""
+
+#. module: elaf_cashflow_lite
+#. odoo-javascript
+#: code:addons/elaf_cashflow_lite/static/src/xml/cashflow_edition.xml:0
+msgid "Discover Pro"
+msgstr ""
+
+#. module: elaf_cashflow_lite
+#: model:ir.model.fields,field_description:elaf_cashflow_lite.field_elaf_cashflow_engine__display_name
+#: model:ir.model.fields,field_description:elaf_cashflow_lite.field_elaf_cashflow_forecast__display_name
+#: model:ir.model.fields,field_description:elaf_cashflow_lite.field_elaf_cashflow_forecast_day__display_name
+#: model:ir.model.fields,field_description:elaf_cashflow_lite.field_elaf_cashflow_forecast_flow__display_name
+#: model:ir.model.fields,field_description:elaf_cashflow_lite.field_elaf_cashflow_forecast_line__display_name
+#: model:ir.model.fields,field_description:elaf_cashflow_lite.field_elaf_cashflow_settings__display_name
+#: model:ir.model.fields,field_description:elaf_cashflow_lite.field_elaf_cashflow_usage__display_name
+#: model:ir.model.fields,field_description:elaf_cashflow_lite.field_elaf_cashflow_usage_log__display_name
+#: model:ir.model.fields,field_description:elaf_cashflow_lite.field_res_company__display_name
+#: model:ir.model.fields,field_description:elaf_cashflow_lite.field_res_config_settings__display_name
+msgid "Display Name"
+msgstr ""
+
+#. module: elaf_cashflow_lite
+#. odoo-javascript
+#: code:addons/elaf_cashflow_lite/static/src/xml/cashflow_dashboard.xml:0
+#: model:ir.model.fields,field_description:elaf_cashflow_lite.field_elaf_cashflow_forecast_flow__name
+msgid "Document"
+msgstr ""
+
+#. module: elaf_cashflow_lite
+#: model:ir.model.fields,field_description:elaf_cashflow_lite.field_elaf_cashflow_forecast_flow__res_id
+msgid "Document ID"
+msgstr ""
+
+#. module: elaf_cashflow_lite
+#: model:ir.model.fields,field_description:elaf_cashflow_lite.field_elaf_cashflow_forecast_flow__res_model
+msgid "Document Model"
+msgstr ""
+
+#. module: elaf_cashflow_lite
+#: model:ir.model.fields,field_description:elaf_cashflow_lite.field_elaf_cashflow_forecast_flow__doc_type
+msgid "Document Type"
+msgstr ""
+
+#. module: elaf_cashflow_lite
+#. odoo-javascript
+#: code:addons/elaf_cashflow_lite/static/src/xml/cashflow_dashboard.xml:0
+msgid "Does not reconcile"
+msgstr ""
+
+#. module: elaf_cashflow_lite
+#: model:ir.model.fields.selection,name:elaf_cashflow_lite.selection__elaf_cashflow_forecast__state__draft
+msgid "Draft"
+msgstr ""
+
+#. module: elaf_cashflow_lite
+#. odoo-javascript
+#: code:addons/elaf_cashflow_lite/static/src/js/cashflow_edition.js:0
+msgid "Drill-down to journal items and documents"
+msgstr ""
+
+#. module: elaf_cashflow_lite
+#. odoo-javascript
+#: code:addons/elaf_cashflow_lite/static/src/xml/cashflow_dashboard.xml:0
+msgid "Due"
+msgstr ""
+
+#. module: elaf_cashflow_lite
+#: model:ir.model.fields,field_description:elaf_cashflow_lite.field_elaf_cashflow_forecast_flow__orig_date
+msgid "Due Date"
+msgstr ""
+
+#. module: elaf_cashflow_lite
+#. odoo-javascript
+#: code:addons/elaf_cashflow_lite/static/src/xml/cashflow_dashboard.xml:0
+msgid "Due date"
+msgstr ""
+
+#. module: elaf_cashflow_lite
+#. odoo-javascript
+#: code:addons/elaf_cashflow_lite/static/src/xml/cashflow_dashboard.xml:0
+msgid "Each amount counted once"
+msgstr ""
+
+#. module: elaf_cashflow_lite
+#. odoo-javascript
+#: code:addons/elaf_cashflow_lite/static/src/xml/cashflow_dashboard.xml:0
+msgid ""
+"Each item is placed on its due date. Items already due are overdue and "
+"placed in the first bucket."
+msgstr ""
+
+#. module: elaf_cashflow_lite
+#: model:ir.model.fields,field_description:elaf_cashflow_lite.field_elaf_cashflow_usage_log__event
+msgid "Event"
+msgstr ""
+
+#. module: elaf_cashflow_lite
+#: model:ir.model.fields,field_description:elaf_cashflow_lite.field_elaf_cashflow_forecast_flow__date
+msgid "Expected Date"
+msgstr ""
+
+#. module: elaf_cashflow_lite
+#. odoo-python
+#: code:addons/elaf_cashflow_lite/models/elaf_cashflow_forecast.py:0
+#: model:ir.model.fields,field_description:elaf_cashflow_lite.field_elaf_cashflow_forecast__total_inflow
+msgid "Expected Inflows"
+msgstr ""
+
+#. module: elaf_cashflow_lite
+#. odoo-python
+#: code:addons/elaf_cashflow_lite/models/elaf_cashflow_forecast.py:0
+#: model:ir.model.fields,field_description:elaf_cashflow_lite.field_elaf_cashflow_forecast__total_outflow
+msgid "Expected Outflows"
+msgstr ""
+
+#. module: elaf_cashflow_lite
+#. odoo-javascript
+#: code:addons/elaf_cashflow_lite/static/src/js/cashflow_dashboard.js:0
+#: code:addons/elaf_cashflow_lite/static/src/xml/cashflow_dashboard.xml:0
+msgid "Expected inflows"
+msgstr ""
+
+#. module: elaf_cashflow_lite
+#. odoo-javascript
+#: code:addons/elaf_cashflow_lite/static/src/js/cashflow_edition.js:0
+msgid "Expected inflows and outflows from open invoices and bills"
+msgstr ""
+
+#. module: elaf_cashflow_lite
+#. odoo-javascript
+#: code:addons/elaf_cashflow_lite/static/src/js/cashflow_dashboard.js:0
+#: code:addons/elaf_cashflow_lite/static/src/xml/cashflow_dashboard.xml:0
+msgid "Expected outflows"
+msgstr ""
+
+#. module: elaf_cashflow_lite
+#. odoo-javascript
+#: code:addons/elaf_cashflow_lite/static/src/js/cashflow_edition.js:0
+msgid "Explainable payment and collection recommendations"
+msgstr ""
+
+#. module: elaf_cashflow_lite
+#. odoo-javascript
+#: code:addons/elaf_cashflow_lite/static/src/xml/cashflow_edition.xml:0
+msgid "Features"
+msgstr ""
+
+#. module: elaf_cashflow_lite
+#: model:ir.model.fields,field_description:elaf_cashflow_lite.field_elaf_cashflow_forecast__shortage_date
+msgid "First Shortage Date"
+msgstr ""
+
+#. module: elaf_cashflow_lite
+#: model:ir.model.fields,field_description:elaf_cashflow_lite.field_elaf_cashflow_forecast__flow_ids
+#: model:ir.model.fields,field_description:elaf_cashflow_lite.field_elaf_cashflow_forecast_line__flow_ids
+#: model_terms:ir.ui.view,arch_db:elaf_cashflow_lite.elaf_cf_forecast_form
+msgid "Flows"
+msgstr ""
+
+#. module: elaf_cashflow_lite
+#: model:ir.model.fields,field_description:elaf_cashflow_lite.field_elaf_cashflow_forecast__message_follower_ids
+msgid "Followers"
+msgstr ""
+
+#. module: elaf_cashflow_lite
+#: model:ir.model.fields,field_description:elaf_cashflow_lite.field_elaf_cashflow_forecast__message_partner_ids
+msgid "Followers (Partners)"
+msgstr ""
+
+#. module: elaf_cashflow_lite
+#. odoo-javascript
+#: code:addons/elaf_cashflow_lite/static/src/xml/cashflow_dashboard.xml:0
+#: code:addons/elaf_cashflow_lite/static/src/xml/cashflow_edition.xml:0
+#: model:ir.model.fields,field_description:elaf_cashflow_lite.field_elaf_cashflow_forecast_day__forecast_id
+#: model:ir.model.fields,field_description:elaf_cashflow_lite.field_elaf_cashflow_forecast_flow__forecast_id
+#: model:ir.model.fields,field_description:elaf_cashflow_lite.field_elaf_cashflow_forecast_line__forecast_id
+#: model_terms:ir.ui.view,arch_db:elaf_cashflow_lite.res_config_settings_view_form_elaf_cashflow
+msgid "Forecast"
+msgstr ""
+
+#. module: elaf_cashflow_lite
+#. odoo-python
+#: code:addons/elaf_cashflow_lite/models/elaf_cashflow_forecast.py:0
+msgid "Forecast %(date)s (%(days)s days)"
+msgstr ""
+
+#. module: elaf_cashflow_lite
+#: model:ir.model.fields,field_description:elaf_cashflow_lite.field_elaf_cashflow_forecast__date_to
+msgid "Forecast End"
+msgstr ""
+
+#. module: elaf_cashflow_lite
+#: model:ir.model.fields,field_description:elaf_cashflow_lite.field_elaf_cashflow_forecast__date_from
+msgid "Forecast Start"
+msgstr ""
+
+#. module: elaf_cashflow_lite
+#. odoo-python
+#: code:addons/elaf_cashflow_lite/models/elaf_cashflow_forecast.py:0
+msgid ""
+"Forecast buckets and flows are part of a saved forecast and cannot be "
+"created or changed. Generate a new forecast instead."
+msgstr ""
+
+#. module: elaf_cashflow_lite
+#. odoo-javascript
+#: code:addons/elaf_cashflow_lite/static/src/xml/cashflow_dashboard.xml:0
+msgid "Forecast by"
+msgstr ""
+
+#. module: elaf_cashflow_lite
+#. odoo-javascript
+#: code:addons/elaf_cashflow_lite/static/src/js/cashflow_edition.js:0
+msgid "Forecast calculations"
+msgstr ""
+
+#. module: elaf_cashflow_lite
+#: model_terms:ir.ui.view,arch_db:elaf_cashflow_lite.elaf_cf_forecast_form
+msgid ""
+"Forecast figures are estimates based on open invoices and bills at the time of the\n"
+"                        calculation. Actual figures are posted accounting balances."
+msgstr ""
+
+#. module: elaf_cashflow_lite
+#. odoo-javascript
+#: code:addons/elaf_cashflow_lite/static/src/js/cashflow_dashboard.js:0
+msgid "Forecast generated and saved."
+msgstr ""
+
+#. module: elaf_cashflow_lite
+#. odoo-javascript
+#: code:addons/elaf_cashflow_lite/static/src/js/cashflow_edition.js:0
+msgid "Forecast horizon"
+msgstr ""
+
+#. module: elaf_cashflow_lite
+#. odoo-javascript
+#: code:addons/elaf_cashflow_lite/static/src/xml/cashflow_edition.xml:0
+msgid "Forecast horizon of 7 days with daily buckets."
+msgstr ""
+
+#. module: elaf_cashflow_lite
+#. odoo-javascript
+#: code:addons/elaf_cashflow_lite/static/src/xml/cashflow_chart.xml:0
+msgid "Forecast projected balance (estimate)"
+msgstr ""
+
+#. module: elaf_cashflow_lite
+#. odoo-javascript
+#: code:addons/elaf_cashflow_lite/static/src/xml/cashflow_chart.xml:0
+msgid "Forecast trend"
+msgstr ""
+
+#. module: elaf_cashflow_lite
+#. odoo-javascript
+#: code:addons/elaf_cashflow_lite/static/src/xml/cashflow_edition.xml:0
+msgid "Forecasts saved"
+msgstr ""
+
+#. module: elaf_cashflow_lite
+#: model:ir.model.fields,field_description:elaf_cashflow_lite.field_elaf_cashflow_forecast_line__date_start
+msgid "From"
+msgstr ""
+
+#. module: elaf_cashflow_lite
+#: model:ir.model.fields,field_description:elaf_cashflow_lite.field_elaf_cashflow_forecast__shortage_gap
+msgid "Gap on First Shortage Date"
+msgstr ""
+
+#. module: elaf_cashflow_lite
+#: model:ir.model.fields,field_description:elaf_cashflow_lite.field_elaf_cashflow_forecast_line__gap
+msgid "Gap to Threshold"
+msgstr ""
+
+#. module: elaf_cashflow_lite
+#. odoo-javascript
+#: code:addons/elaf_cashflow_lite/static/src/xml/cashflow_dashboard.xml:0
+msgid ""
+"Generate a forecast to project your actual cash with open customer invoices and vendor bills\n"
+"                        over the next"
+msgstr ""
+
+#. module: elaf_cashflow_lite
+#. odoo-javascript
+#: code:addons/elaf_cashflow_lite/static/src/xml/cashflow_dashboard.xml:0
+#: model_terms:ir.ui.view,arch_db:elaf_cashflow_lite.elaf_cf_forecast_form
+msgid "Generate forecast"
+msgstr ""
+
+#. module: elaf_cashflow_lite
+#. odoo-javascript
+#: code:addons/elaf_cashflow_lite/static/src/xml/cashflow_dashboard.xml:0
+msgid "Generate forecast (limit reached)"
+msgstr ""
+
+#. module: elaf_cashflow_lite
+#: model_terms:ir.actions.act_window,help:elaf_cashflow_lite.action_forecasts
+msgid "Generate your first cash flow forecast"
+msgstr ""
+
+#. module: elaf_cashflow_lite
+#: model:ir.model.fields,field_description:elaf_cashflow_lite.field_elaf_cashflow_forecast__granularity
+msgid "Granularity"
+msgstr ""
+
+#. module: elaf_cashflow_lite
+#: model:ir.model.fields,field_description:elaf_cashflow_lite.field_elaf_cashflow_forecast__has_message
+msgid "Has Message"
+msgstr ""
+
+#. module: elaf_cashflow_lite
+#: model:ir.model.fields,field_description:elaf_cashflow_lite.field_elaf_cashflow_forecast__horizon
+msgid "Horizon"
+msgstr ""
+
+#. module: elaf_cashflow_lite
+#. odoo-javascript
+#: code:addons/elaf_cashflow_lite/static/src/xml/cashflow_dashboard.xml:0
+#: model_terms:ir.ui.view,arch_db:elaf_cashflow_lite.elaf_cf_forecast_form
+msgid "How this is calculated"
+msgstr ""
+
+#. module: elaf_cashflow_lite
+#. odoo-javascript
+#: code:addons/elaf_cashflow_lite/static/src/xml/cashflow_edition.xml:0
+msgid "How upgrading works"
+msgstr ""
+
+#. module: elaf_cashflow_lite
+#: model:ir.model.fields,field_description:elaf_cashflow_lite.field_elaf_cashflow_engine__id
+#: model:ir.model.fields,field_description:elaf_cashflow_lite.field_elaf_cashflow_forecast__id
+#: model:ir.model.fields,field_description:elaf_cashflow_lite.field_elaf_cashflow_forecast_day__id
+#: model:ir.model.fields,field_description:elaf_cashflow_lite.field_elaf_cashflow_forecast_flow__id
+#: model:ir.model.fields,field_description:elaf_cashflow_lite.field_elaf_cashflow_forecast_line__id
+#: model:ir.model.fields,field_description:elaf_cashflow_lite.field_elaf_cashflow_settings__id
+#: model:ir.model.fields,field_description:elaf_cashflow_lite.field_elaf_cashflow_usage__id
+#: model:ir.model.fields,field_description:elaf_cashflow_lite.field_elaf_cashflow_usage_log__id
+#: model:ir.model.fields,field_description:elaf_cashflow_lite.field_res_company__id
+#: model:ir.model.fields,field_description:elaf_cashflow_lite.field_res_config_settings__id
+msgid "ID"
+msgstr ""
+
+#. module: elaf_cashflow_lite
+#: model:ir.model.fields,help:elaf_cashflow_lite.field_elaf_cashflow_forecast__message_needaction
+msgid "If checked, new messages require your attention."
+msgstr ""
+
+#. module: elaf_cashflow_lite
+#: model:ir.model.fields,help:elaf_cashflow_lite.field_elaf_cashflow_forecast__message_has_error
+#: model:ir.model.fields,help:elaf_cashflow_lite.field_elaf_cashflow_forecast__message_has_sms_error
+msgid "If checked, some messages have a delivery error."
+msgstr ""
+
+#. module: elaf_cashflow_lite
+#: model:ir.model.fields,field_description:elaf_cashflow_lite.field_elaf_cashflow_forecast__include_outstanding
+msgid "Include Outstanding"
+msgstr ""
+
+#. module: elaf_cashflow_lite
+#: model:ir.model.fields,field_description:elaf_cashflow_lite.field_elaf_cashflow_settings__include_outstanding
+#: model:ir.model.fields,field_description:elaf_cashflow_lite.field_res_company__elaf_cf_include_outstanding
+#: model:ir.model.fields,field_description:elaf_cashflow_lite.field_res_config_settings__elaf_cf_include_outstanding
+msgid "Include Outstanding Payments in Opening Balance"
+msgstr ""
+
+#. module: elaf_cashflow_lite
+#. odoo-javascript
+#: code:addons/elaf_cashflow_lite/static/src/xml/cashflow_dashboard.xml:0
+msgid "Independent sum"
+msgstr ""
+
+#. module: elaf_cashflow_lite
+#: model:ir.model.fields.selection,name:elaf_cashflow_lite.selection__elaf_cashflow_forecast_flow__direction__in
+msgid "Inflow"
+msgstr ""
+
+#. module: elaf_cashflow_lite
+#. odoo-javascript
+#: code:addons/elaf_cashflow_lite/static/src/xml/cashflow_dashboard.xml:0
+#: model:ir.model.fields,field_description:elaf_cashflow_lite.field_elaf_cashflow_forecast_day__inflow
+#: model:ir.model.fields,field_description:elaf_cashflow_lite.field_elaf_cashflow_forecast_line__inflow
+#: model_terms:ir.ui.view,arch_db:elaf_cashflow_lite.elaf_cf_flow_search
+#: model_terms:ir.ui.view,arch_db:elaf_cashflow_lite.elaf_cf_forecast_form
+msgid "Inflows"
+msgstr ""
+
+#. module: elaf_cashflow_lite
+#. odoo-python
+#: code:addons/elaf_cashflow_lite/models/elaf_cashflow_forecast.py:0
+msgid "Inflows %(start)s - %(end)s"
+msgstr ""
+
+#. module: elaf_cashflow_lite
+#. odoo-javascript
+#: code:addons/elaf_cashflow_lite/static/src/xml/cashflow_edition.xml:0
+msgid "Install the Pro module (Cash Flow Forecast, technical name"
+msgstr ""
+
+#. module: elaf_cashflow_lite
+#: model_terms:ir.ui.view,arch_db:elaf_cashflow_lite.elaf_cf_forecast_form
+msgid "Internal notes about this forecast..."
+msgstr ""
+
+#. module: elaf_cashflow_lite
+#. odoo-javascript
+#: code:addons/elaf_cashflow_lite/static/src/js/cashflow_dashboard.js:0
+#: model:ir.model.fields.selection,name:elaf_cashflow_lite.selection__elaf_cashflow_forecast_flow__doc_type__invoice
+msgid "Invoice"
+msgstr ""
+
+#. module: elaf_cashflow_lite
+#: model:ir.model.fields,field_description:elaf_cashflow_lite.field_elaf_cashflow_forecast__message_is_follower
+msgid "Is Follower"
+msgstr ""
+
+#. module: elaf_cashflow_lite
+#. odoo-javascript
+#: code:addons/elaf_cashflow_lite/static/src/xml/cashflow_dashboard.xml:0
+msgid "Journal (actual, live)"
+msgstr ""
+
+#. module: elaf_cashflow_lite
+#: model:ir.model.fields,field_description:elaf_cashflow_lite.field_elaf_cashflow_forecast_flow__move_line_id
+msgid "Journal Item"
+msgstr ""
+
+#. module: elaf_cashflow_lite
+#. odoo-python
+#: code:addons/elaf_cashflow_lite/models/elaf_cashflow_engine.py:0
+msgid "Journal Items"
+msgstr ""
+
+#. module: elaf_cashflow_lite
+#. odoo-javascript
+#: code:addons/elaf_cashflow_lite/static/src/js/cashflow_dashboard.js:0
+#: model:ir.model.fields.selection,name:elaf_cashflow_lite.selection__elaf_cashflow_forecast_flow__doc_type__entry
+msgid "Journal entry"
+msgstr ""
+
+#. module: elaf_cashflow_lite
+#: model:ir.model.fields,field_description:elaf_cashflow_lite.field_elaf_cashflow_usage__key
+#: model:ir.model.fields,field_description:elaf_cashflow_lite.field_elaf_cashflow_usage_log__key
+msgid "Key"
+msgstr ""
+
+#. module: elaf_cashflow_lite
+#. odoo-javascript
+#: code:addons/elaf_cashflow_lite/static/src/xml/cashflow_dashboard.xml:0
+msgid "Know your cash position before tomorrow arrives."
+msgstr ""
+
+#. module: elaf_cashflow_lite
+#: model:ir.model.fields,field_description:elaf_cashflow_lite.field_elaf_cashflow_forecast__max_gap
+msgid "Largest Gap"
+msgstr ""
+
+#. module: elaf_cashflow_lite
+#: model:ir.model.fields,field_description:elaf_cashflow_lite.field_elaf_cashflow_forecast__write_uid
+#: model:ir.model.fields,field_description:elaf_cashflow_lite.field_elaf_cashflow_forecast_day__write_uid
+#: model:ir.model.fields,field_description:elaf_cashflow_lite.field_elaf_cashflow_forecast_flow__write_uid
+#: model:ir.model.fields,field_description:elaf_cashflow_lite.field_elaf_cashflow_forecast_line__write_uid
+#: model:ir.model.fields,field_description:elaf_cashflow_lite.field_elaf_cashflow_settings__write_uid
+#: model:ir.model.fields,field_description:elaf_cashflow_lite.field_elaf_cashflow_usage__write_uid
+#: model:ir.model.fields,field_description:elaf_cashflow_lite.field_elaf_cashflow_usage_log__write_uid
+msgid "Last Updated by"
+msgstr ""
+
+#. module: elaf_cashflow_lite
+#: model:ir.model.fields,field_description:elaf_cashflow_lite.field_elaf_cashflow_forecast__write_date
+#: model:ir.model.fields,field_description:elaf_cashflow_lite.field_elaf_cashflow_forecast_day__write_date
+#: model:ir.model.fields,field_description:elaf_cashflow_lite.field_elaf_cashflow_forecast_flow__write_date
+#: model:ir.model.fields,field_description:elaf_cashflow_lite.field_elaf_cashflow_forecast_line__write_date
+#: model:ir.model.fields,field_description:elaf_cashflow_lite.field_elaf_cashflow_settings__write_date
+#: model:ir.model.fields,field_description:elaf_cashflow_lite.field_elaf_cashflow_usage__write_date
+#: model:ir.model.fields,field_description:elaf_cashflow_lite.field_elaf_cashflow_usage_log__write_date
+msgid "Last Updated on"
+msgstr ""
+
+#. module: elaf_cashflow_lite
+#: model:ir.model.fields,field_description:elaf_cashflow_lite.field_elaf_cashflow_usage__last_used_at
+msgid "Last Used At"
+msgstr ""
+
+#. module: elaf_cashflow_lite
+#: model:ir.model.fields,field_description:elaf_cashflow_lite.field_elaf_cashflow_usage__usage_limit
+msgid "Limit"
+msgstr ""
+
+#. module: elaf_cashflow_lite
+#: model:ir.model.fields,field_description:elaf_cashflow_lite.field_elaf_cashflow_forecast__shortage
+msgid "Liquidity Shortage"
+msgstr ""
+
+#. module: elaf_cashflow_lite
+#. odoo-javascript
+#: code:addons/elaf_cashflow_lite/static/src/xml/cashflow_dashboard.xml:0
+msgid "Liquidity shortage forecast"
+msgstr ""
+
+#. module: elaf_cashflow_lite
+#. odoo-javascript
+#: code:addons/elaf_cashflow_lite/static/src/xml/cashflow_edition.xml:0
+msgid "Lite (free)"
+msgstr ""
+
+#. module: elaf_cashflow_lite
+#. odoo-javascript
+#: code:addons/elaf_cashflow_lite/static/src/xml/cashflow_dashboard.xml:0
+#: code:addons/elaf_cashflow_lite/static/src/xml/cashflow_edition.xml:0
+msgid "Lite Edition"
+msgstr ""
+
+#. module: elaf_cashflow_lite
+#: model:ir.actions.act_window,name:elaf_cashflow_lite.action_usage
+#: model:ir.ui.menu,name:elaf_cashflow_lite.menu_usage
+msgid "Lite Usage"
+msgstr ""
+
+#. module: elaf_cashflow_lite
+#: model:ir.actions.act_window,name:elaf_cashflow_lite.action_usage_log
+#: model:ir.ui.menu,name:elaf_cashflow_lite.menu_usage_log
+msgid "Lite Usage Log"
+msgstr ""
+
+#. module: elaf_cashflow_lite
+#. odoo-javascript
+#: code:addons/elaf_cashflow_lite/static/src/xml/cashflow_edition.xml:0
+msgid "Lite calculations used"
+msgstr ""
+
+#. module: elaf_cashflow_lite
+#. odoo-javascript
+#: code:addons/elaf_cashflow_lite/static/src/xml/cashflow_edition.xml:0
+msgid "Lite edition limits"
+msgstr ""
+
+#. module: elaf_cashflow_lite
+#. odoo-javascript
+#: code:addons/elaf_cashflow_lite/static/src/xml/cashflow_dashboard.xml:0
+msgid "Lite forecast allowance used ("
+msgstr ""
+
+#. module: elaf_cashflow_lite
+#. odoo-python
+#: code:addons/elaf_cashflow_lite/models/elaf_cashflow_usage.py:0
+msgid ""
+"Lite forecast allowance used (%(used)s/%(limit)s). Your saved forecasts stay"
+" available. The Pro edition removes this limit and adds 30/60/90-day "
+"horizons and scenarios."
+msgstr ""
+
+#. module: elaf_cashflow_lite
+#. odoo-javascript
+#: code:addons/elaf_cashflow_lite/static/src/xml/cashflow_dashboard.xml:0
+msgid "Lite forecast calculation(s) left."
+msgstr ""
+
+#. module: elaf_cashflow_lite
+#. odoo-javascript
+#: code:addons/elaf_cashflow_lite/static/src/xml/cashflow_dashboard.xml:0
+msgid "Lite usage"
+msgstr ""
+
+#. module: elaf_cashflow_lite
+#. odoo-javascript
+#: code:addons/elaf_cashflow_lite/static/src/xml/cashflow_dashboard.xml:0
+#: code:addons/elaf_cashflow_lite/static/src/xml/cashflow_edition.xml:0
+#: model:ir.actions.client,name:elaf_cashflow_lite.action_edition
+#: model:ir.ui.menu,name:elaf_cashflow_lite.menu_edition
+msgid "Lite vs Pro"
+msgstr ""
+
+#. module: elaf_cashflow_lite
+#. odoo-javascript
+#: code:addons/elaf_cashflow_lite/static/src/xml/cashflow_dashboard.xml:0
+msgid "Live forecast computed now from current open items."
+msgstr ""
+
+#. module: elaf_cashflow_lite
+#. odoo-javascript
+#: code:addons/elaf_cashflow_lite/static/src/js/cashflow_edition.js:0
+msgid "Live forecasts without using an allowance"
+msgstr ""
+
+#. module: elaf_cashflow_lite
+#. odoo-javascript
+#: code:addons/elaf_cashflow_lite/static/src/xml/cashflow_dashboard.xml:0
+msgid "Loading cash position…"
+msgstr ""
+
+#. module: elaf_cashflow_lite
+#: model:ir.model.fields,field_description:elaf_cashflow_lite.field_elaf_cashflow_forecast__lowest_date
+msgid "Lowest Balance Date"
+msgstr ""
+
+#. module: elaf_cashflow_lite
+#: model:ir.model.fields,field_description:elaf_cashflow_lite.field_elaf_cashflow_forecast_line__lowest_date
+msgid "Lowest On"
+msgstr ""
+
+#. module: elaf_cashflow_lite
+#: model:ir.model.fields,field_description:elaf_cashflow_lite.field_elaf_cashflow_forecast_line__lowest_balance
+msgid "Lowest Projected"
+msgstr ""
+
+#. module: elaf_cashflow_lite
+#: model:ir.model.fields,field_description:elaf_cashflow_lite.field_elaf_cashflow_forecast__lowest_balance
+msgid "Lowest Projected Balance"
+msgstr ""
+
+#. module: elaf_cashflow_lite
+#. odoo-javascript
+#: code:addons/elaf_cashflow_lite/static/src/xml/cashflow_dashboard.xml:0
+msgid "Lowest projected balance"
+msgstr ""
+
+#. module: elaf_cashflow_lite
+#: model:res.groups,name:elaf_cashflow_lite.group_cashflow_manager
+msgid "Manager"
+msgstr ""
+
+#. module: elaf_cashflow_lite
+#. odoo-javascript
+#: code:addons/elaf_cashflow_lite/static/src/xml/cashflow_edition.xml:0
+msgid ""
+"Manual forecasts only. No scenarios, collection prioritisation, payment "
+"recommendations, consolidation, automatic forecasts or exports."
+msgstr ""
+
+#. module: elaf_cashflow_lite
+#: model:ir.model.fields,field_description:elaf_cashflow_lite.field_elaf_cashflow_forecast__message_has_error
+msgid "Message Delivery error"
+msgstr ""
+
+#. module: elaf_cashflow_lite
+#: model:ir.model.fields,field_description:elaf_cashflow_lite.field_elaf_cashflow_forecast__message_ids
+msgid "Messages"
+msgstr ""
+
+#. module: elaf_cashflow_lite
+#: model:ir.model.fields,field_description:elaf_cashflow_lite.field_elaf_cashflow_forecast__threshold
+#: model:ir.model.fields,field_description:elaf_cashflow_lite.field_elaf_cashflow_settings__min_cash
+#: model:ir.model.fields,field_description:elaf_cashflow_lite.field_res_company__elaf_cf_min_cash
+#: model:ir.model.fields,field_description:elaf_cashflow_lite.field_res_config_settings__elaf_cf_min_cash
+msgid "Minimum Cash Threshold"
+msgstr ""
+
+#. module: elaf_cashflow_lite
+#. odoo-javascript
+#: code:addons/elaf_cashflow_lite/static/src/xml/cashflow_chart.xml:0
+msgid "Minimum cash threshold"
+msgstr ""
+
+#. module: elaf_cashflow_lite
+#. odoo-javascript
+#: code:addons/elaf_cashflow_lite/static/src/js/cashflow_edition.js:0
+msgid "Minimum cash threshold and shortage detection"
+msgstr ""
+
+#. module: elaf_cashflow_lite
+#. odoo-javascript
+#: code:addons/elaf_cashflow_lite/static/src/xml/cashflow_dashboard.xml:0
+msgid "More with the Pro edition"
+msgstr ""
+
+#. module: elaf_cashflow_lite
+#. odoo-javascript
+#: code:addons/elaf_cashflow_lite/static/src/js/cashflow_dashboard.js:0
+msgid "Multi-company consolidation"
+msgstr ""
+
+#. module: elaf_cashflow_lite
+#. odoo-javascript
+#: code:addons/elaf_cashflow_lite/static/src/js/cashflow_edition.js:0
+msgid "Multi-company, consolidated view"
+msgstr ""
+
+#. module: elaf_cashflow_lite
+#: model:ir.model.fields,field_description:elaf_cashflow_lite.field_elaf_cashflow_forecast__name
+msgid "Name"
+msgstr ""
+
+#. module: elaf_cashflow_lite
+#. odoo-javascript
+#: code:addons/elaf_cashflow_lite/static/src/xml/cashflow_dashboard.xml:0
+#: model:ir.model.fields,field_description:elaf_cashflow_lite.field_elaf_cashflow_forecast_line__net
+msgid "Net"
+msgstr ""
+
+#. module: elaf_cashflow_lite
+#. odoo-python
+#: code:addons/elaf_cashflow_lite/models/elaf_cashflow_forecast.py:0
+msgid "New forecast"
+msgstr ""
+
+#. module: elaf_cashflow_lite
+#. odoo-javascript
+#: code:addons/elaf_cashflow_lite/static/src/xml/cashflow_dashboard.xml:0
+msgid "No flows in this period."
+msgstr ""
+
+#. module: elaf_cashflow_lite
+#. odoo-javascript
+#: code:addons/elaf_cashflow_lite/static/src/xml/cashflow_dashboard.xml:0
+msgid "No forecast yet"
+msgstr ""
+
+#. module: elaf_cashflow_lite
+#. odoo-javascript
+#: code:addons/elaf_cashflow_lite/static/src/js/cashflow_dashboard.js:0
+msgid "No journal items behind this figure."
+msgstr ""
+
+#. module: elaf_cashflow_lite
+#. odoo-javascript
+#: code:addons/elaf_cashflow_lite/static/src/xml/cashflow_dashboard.xml:0
+msgid ""
+"No liquidity shortage forecast: the projected balance stays above the minimum cash threshold\n"
+"                        ("
+msgstr ""
+
+#. module: elaf_cashflow_lite
+#. odoo-javascript
+#: code:addons/elaf_cashflow_lite/static/src/xml/cashflow_dashboard.xml:0
+msgid "No open customer invoices due in this horizon."
+msgstr ""
+
+#. module: elaf_cashflow_lite
+#. odoo-javascript
+#: code:addons/elaf_cashflow_lite/static/src/xml/cashflow_dashboard.xml:0
+msgid "No open vendor bills due in this horizon."
+msgstr ""
+
+#. module: elaf_cashflow_lite
+#. odoo-javascript
+#: code:addons/elaf_cashflow_lite/static/src/xml/cashflow_edition.xml:0
+msgid ""
+"No shortage found within 7 days so far. Pro looks 30, 60 or 90 days ahead."
+msgstr ""
+
+#. module: elaf_cashflow_lite
+#. odoo-javascript
+#: code:addons/elaf_cashflow_lite/static/src/xml/cashflow_dashboard.xml:0
+msgid "Not in this horizon: receivables / payables due later"
+msgstr ""
+
+#. module: elaf_cashflow_lite
+#: model:ir.model.fields,field_description:elaf_cashflow_lite.field_elaf_cashflow_forecast__note
+#: model:ir.model.fields,field_description:elaf_cashflow_lite.field_elaf_cashflow_forecast_flow__note
+#: model:ir.model.fields,field_description:elaf_cashflow_lite.field_elaf_cashflow_usage_log__note
+msgid "Note"
+msgstr ""
+
+#. module: elaf_cashflow_lite
+#: model_terms:ir.ui.view,arch_db:elaf_cashflow_lite.elaf_cf_forecast_form
+msgid "Notes"
+msgstr ""
+
+#. module: elaf_cashflow_lite
+#: model:ir.model.fields,field_description:elaf_cashflow_lite.field_elaf_cashflow_forecast__message_needaction_counter
+msgid "Number of Actions"
+msgstr ""
+
+#. module: elaf_cashflow_lite
+#: model:ir.model.fields,field_description:elaf_cashflow_lite.field_elaf_cashflow_forecast__message_has_error_counter
+msgid "Number of errors"
+msgstr ""
+
+#. module: elaf_cashflow_lite
+#: model:ir.model.fields,help:elaf_cashflow_lite.field_elaf_cashflow_forecast__message_needaction_counter
+msgid "Number of messages requiring action"
+msgstr ""
+
+#. module: elaf_cashflow_lite
+#: model:ir.model.fields,help:elaf_cashflow_lite.field_elaf_cashflow_forecast__message_has_error_counter
+msgid "Number of messages with delivery error"
+msgstr ""
+
+#. module: elaf_cashflow_lite
+#. odoo-javascript
+#: code:addons/elaf_cashflow_lite/static/src/xml/cashflow_dashboard.xml:0
+msgid "OK"
+msgstr ""
+
+#. module: elaf_cashflow_lite
+#. odoo-javascript
+#: code:addons/elaf_cashflow_lite/static/src/xml/cashflow_dashboard.xml:0
+msgid "On"
+msgstr ""
+
+#. module: elaf_cashflow_lite
+#. odoo-javascript
+#: code:addons/elaf_cashflow_lite/static/src/js/cashflow_edition.js:0
+#: code:addons/elaf_cashflow_lite/static/src/xml/cashflow_edition.xml:0
+msgid "One company"
+msgstr ""
+
+#. module: elaf_cashflow_lite
+#: model:ir.model.constraint,message:elaf_cashflow_lite.constraint_elaf_cashflow_usage_key_uniq
+msgid "One usage counter per key."
+msgstr ""
+
+#. module: elaf_cashflow_lite
+#. odoo-python
+#: code:addons/elaf_cashflow_lite/wizard/elaf_cashflow_settings.py:0
+msgid "Only Cash Flow managers can change these settings."
+msgstr ""
+
+#. module: elaf_cashflow_lite
+#. odoo-python
+#: code:addons/elaf_cashflow_lite/models/elaf_cashflow_forecast.py:0
+msgid "Only Cash Flow managers can delete forecasts."
+msgstr ""
+
+#. module: elaf_cashflow_lite
+#. odoo-javascript
+#: code:addons/elaf_cashflow_lite/static/src/xml/cashflow_dashboard.xml:0
+msgid ""
+"Only posted documents are used. Drafts and cancelled documents are never "
+"cash, receivables or payables; partial payments and credit notes reduce the "
+"open residual."
+msgstr ""
+
+#. module: elaf_cashflow_lite
+#: model_terms:ir.ui.view,arch_db:elaf_cashflow_lite.elaf_cf_flow_form
+#: model_terms:ir.ui.view,arch_db:elaf_cashflow_lite.elaf_cf_flow_list
+msgid "Open document"
+msgstr ""
+
+#. module: elaf_cashflow_lite
+#: model_terms:ir.ui.view,arch_db:elaf_cashflow_lite.elaf_cf_forecast_form
+msgid "Open in dashboard"
+msgstr ""
+
+#. module: elaf_cashflow_lite
+#. odoo-javascript
+#: code:addons/elaf_cashflow_lite/static/src/xml/cashflow_dashboard.xml:0
+msgid "Open journal items"
+msgstr ""
+
+#. module: elaf_cashflow_lite
+#: model_terms:ir.ui.view,arch_db:elaf_cashflow_lite.elaf_cf_move_line_list
+msgid "Open residual"
+msgstr ""
+
+#. module: elaf_cashflow_lite
+#: model_terms:ir.ui.view,arch_db:elaf_cashflow_lite.elaf_cf_move_line_list
+msgid "Open residual (document currency)"
+msgstr ""
+
+#. module: elaf_cashflow_lite
+#. odoo-javascript
+#: code:addons/elaf_cashflow_lite/static/src/xml/cashflow_dashboard.xml:0
+#: model:ir.model.fields,field_description:elaf_cashflow_lite.field_elaf_cashflow_forecast_day__opening_balance
+#: model:ir.model.fields,field_description:elaf_cashflow_lite.field_elaf_cashflow_forecast_line__opening_balance
+msgid "Opening"
+msgstr ""
+
+#. module: elaf_cashflow_lite
+#: model:ir.model.fields,field_description:elaf_cashflow_lite.field_elaf_cashflow_forecast__opening_balance
+msgid "Opening Balance"
+msgstr ""
+
+#. module: elaf_cashflow_lite
+#: model:ir.model.fields,field_description:elaf_cashflow_lite.field_elaf_cashflow_forecast_flow__amount_currency
+msgid "Original Amount"
+msgstr ""
+
+#. module: elaf_cashflow_lite
+#: model:ir.model.fields,field_description:elaf_cashflow_lite.field_elaf_cashflow_forecast_flow__foreign_currency
+msgid "Original Currency"
+msgstr ""
+
+#. module: elaf_cashflow_lite
+#: model:ir.model.fields.selection,name:elaf_cashflow_lite.selection__elaf_cashflow_forecast_flow__direction__out
+msgid "Outflow"
+msgstr ""
+
+#. module: elaf_cashflow_lite
+#. odoo-javascript
+#: code:addons/elaf_cashflow_lite/static/src/xml/cashflow_dashboard.xml:0
+#: model:ir.model.fields,field_description:elaf_cashflow_lite.field_elaf_cashflow_forecast_day__outflow
+#: model:ir.model.fields,field_description:elaf_cashflow_lite.field_elaf_cashflow_forecast_line__outflow
+#: model_terms:ir.ui.view,arch_db:elaf_cashflow_lite.elaf_cf_flow_search
+#: model_terms:ir.ui.view,arch_db:elaf_cashflow_lite.elaf_cf_forecast_form
+msgid "Outflows"
+msgstr ""
+
+#. module: elaf_cashflow_lite
+#. odoo-python
+#: code:addons/elaf_cashflow_lite/models/elaf_cashflow_forecast.py:0
+msgid "Outflows %(start)s - %(end)s"
+msgstr ""
+
+#. module: elaf_cashflow_lite
+#. odoo-javascript
+#: code:addons/elaf_cashflow_lite/static/src/xml/cashflow_dashboard.xml:0
+msgid "Outstanding ("
+msgstr ""
+
+#. module: elaf_cashflow_lite
+#: model:ir.model.fields,field_description:elaf_cashflow_lite.field_elaf_cashflow_forecast__outstanding_net
+msgid "Outstanding Payments (net)"
+msgstr ""
+
+#. module: elaf_cashflow_lite
+#. odoo-javascript
+#: code:addons/elaf_cashflow_lite/static/src/xml/cashflow_dashboard.xml:0
+msgid "Outstanding payments"
+msgstr ""
+
+#. module: elaf_cashflow_lite
+#. odoo-javascript
+#: code:addons/elaf_cashflow_lite/static/src/js/cashflow_dashboard.js:0
+msgid "Outstanding receipts and payments"
+msgstr ""
+
+#. module: elaf_cashflow_lite
+#. odoo-javascript
+#: code:addons/elaf_cashflow_lite/static/src/xml/cashflow_dashboard.xml:0
+msgid "Outstanding receipts and payments (net)"
+msgstr ""
+
+#. module: elaf_cashflow_lite
+#. odoo-javascript
+#: code:addons/elaf_cashflow_lite/static/src/xml/cashflow_dashboard.xml:0
+#: model:ir.model.fields,field_description:elaf_cashflow_lite.field_elaf_cashflow_forecast_flow__overdue
+#: model_terms:ir.ui.view,arch_db:elaf_cashflow_lite.elaf_cf_flow_search
+msgid "Overdue"
+msgstr ""
+
+#. module: elaf_cashflow_lite
+#: model:ir.model.fields,field_description:elaf_cashflow_lite.field_elaf_cashflow_forecast__overdue_outflow
+msgid "Overdue Payables (first bucket)"
+msgstr ""
+
+#. module: elaf_cashflow_lite
+#: model:ir.model.fields,field_description:elaf_cashflow_lite.field_elaf_cashflow_forecast__overdue_inflow
+msgid "Overdue Receivables (first bucket)"
+msgstr ""
+
+#. module: elaf_cashflow_lite
+#. odoo-javascript
+#: code:addons/elaf_cashflow_lite/static/src/js/cashflow_dashboard.js:0
+#: code:addons/elaf_cashflow_lite/static/src/xml/cashflow_dashboard.xml:0
+#: code:addons/elaf_cashflow_lite/static/src/xml/cashflow_edition.xml:0
+msgid "Overdue receivables"
+msgstr ""
+
+#. module: elaf_cashflow_lite
+#: model_terms:ir.ui.view,arch_db:elaf_cashflow_lite.elaf_cf_forecast_form
+msgid "Parameters"
+msgstr ""
+
+#. module: elaf_cashflow_lite
+#. odoo-javascript
+#: code:addons/elaf_cashflow_lite/static/src/xml/cashflow_dashboard.xml:0
+#: model:ir.model.fields,field_description:elaf_cashflow_lite.field_elaf_cashflow_forecast_flow__partner_id
+#: model_terms:ir.ui.view,arch_db:elaf_cashflow_lite.elaf_cf_flow_search
+msgid "Partner"
+msgstr ""
+
+#. module: elaf_cashflow_lite
+#: model:ir.model.fields,field_description:elaf_cashflow_lite.field_elaf_cashflow_forecast__beyond_outflow
+msgid "Payables Beyond Horizon"
+msgstr ""
+
+#. module: elaf_cashflow_lite
+#. odoo-javascript
+#: code:addons/elaf_cashflow_lite/static/src/js/cashflow_dashboard.js:0
+msgid "Payment recommendations"
+msgstr ""
+
+#. module: elaf_cashflow_lite
+#. odoo-javascript
+#: code:addons/elaf_cashflow_lite/static/src/xml/cashflow_dashboard.xml:0
+msgid "Period"
+msgstr ""
+
+#. module: elaf_cashflow_lite
+#. odoo-javascript
+#: code:addons/elaf_cashflow_lite/static/src/xml/cashflow_dashboard.xml:0
+msgid "Posted bank and cash balances as of"
+msgstr ""
+
+#. module: elaf_cashflow_lite
+#. odoo-python
+#: code:addons/elaf_cashflow_lite/models/elaf_cashflow_engine.py:0
+msgid "Posted open payable residuals"
+msgstr ""
+
+#. module: elaf_cashflow_lite
+#. odoo-python
+#: code:addons/elaf_cashflow_lite/models/elaf_cashflow_engine.py:0
+msgid "Posted open receivable residuals"
+msgstr ""
+
+#. module: elaf_cashflow_lite
+#. odoo-javascript
+#: code:addons/elaf_cashflow_lite/static/src/xml/cashflow_dashboard.xml:0
+#: code:addons/elaf_cashflow_lite/static/src/xml/cashflow_edition.xml:0
+msgid "Pro"
+msgstr ""
+
+#. module: elaf_cashflow_lite
+#. odoo-javascript
+#: code:addons/elaf_cashflow_lite/static/src/xml/cashflow_dashboard.xml:0
+msgid "Pro edition"
+msgstr ""
+
+#. module: elaf_cashflow_lite
+#. odoo-javascript
+#: code:addons/elaf_cashflow_lite/static/src/xml/cashflow_edition.xml:0
+msgid "Pro edition installed"
+msgstr ""
+
+#. module: elaf_cashflow_lite
+#: model:ir.model.fields,field_description:elaf_cashflow_lite.field_elaf_cashflow_forecast_day__closing_balance
+#: model:ir.model.fields,field_description:elaf_cashflow_lite.field_elaf_cashflow_forecast_line__closing_balance
+msgid "Projected Closing"
+msgstr ""
+
+#. module: elaf_cashflow_lite
+#: model:ir.model.fields,field_description:elaf_cashflow_lite.field_elaf_cashflow_forecast__closing_balance
+msgid "Projected Closing Balance"
+msgstr ""
+
+#. module: elaf_cashflow_lite
+#: model:ir.model.fields,help:elaf_cashflow_lite.field_elaf_cashflow_settings__min_cash
+#: model:ir.model.fields,help:elaf_cashflow_lite.field_res_company__elaf_cf_min_cash
+#: model:ir.model.fields,help:elaf_cashflow_lite.field_res_config_settings__elaf_cf_min_cash
+#: model_terms:ir.ui.view,arch_db:elaf_cashflow_lite.res_config_settings_view_form_elaf_cashflow
+msgid ""
+"Projected balances below this amount are flagged as a liquidity shortage."
+msgstr ""
+
+#. module: elaf_cashflow_lite
+#. odoo-javascript
+#: code:addons/elaf_cashflow_lite/static/src/xml/cashflow_dashboard.xml:0
+msgid "Projected closing"
+msgstr ""
+
+#. module: elaf_cashflow_lite
+#. odoo-javascript
+#: code:addons/elaf_cashflow_lite/static/src/xml/cashflow_dashboard.xml:0
+msgid "Projected in"
+msgstr ""
+
+#. module: elaf_cashflow_lite
+#. odoo-javascript
+#: code:addons/elaf_cashflow_lite/static/src/js/cashflow_dashboard.js:0
+msgid "Purchase order (pipeline)"
+msgstr ""
+
+#. module: elaf_cashflow_lite
+#. odoo-javascript
+#: code:addons/elaf_cashflow_lite/static/src/xml/cashflow_dashboard.xml:0
+msgid "Receipts"
+msgstr ""
+
+#. module: elaf_cashflow_lite
+#: model:ir.model.fields,field_description:elaf_cashflow_lite.field_elaf_cashflow_forecast__beyond_inflow
+msgid "Receivables Beyond Horizon"
+msgstr ""
+
+#. module: elaf_cashflow_lite
+#. odoo-javascript
+#: code:addons/elaf_cashflow_lite/static/src/xml/cashflow_dashboard.xml:0
+msgid "Reconciles"
+msgstr ""
+
+#. module: elaf_cashflow_lite
+#: model:ir.model.fields,field_description:elaf_cashflow_lite.field_elaf_cashflow_usage_log__res_ref
+msgid "Record"
+msgstr ""
+
+#. module: elaf_cashflow_lite
+#. odoo-javascript
+#: code:addons/elaf_cashflow_lite/static/src/js/cashflow_edition.js:0
+msgid "Recurring and manual items (payroll, rent, taxes, loans)"
+msgstr ""
+
+#. module: elaf_cashflow_lite
+#. odoo-javascript
+#: code:addons/elaf_cashflow_lite/static/src/js/cashflow_dashboard.js:0
+msgid "Recurring items (payroll, rent, taxes, loans)"
+msgstr ""
+
+#. module: elaf_cashflow_lite
+#. odoo-javascript
+#: code:addons/elaf_cashflow_lite/static/src/js/cashflow_dashboard.js:0
+msgid "Recurring/manual item"
+msgstr ""
+
+#. module: elaf_cashflow_lite
+#. odoo-javascript
+#: code:addons/elaf_cashflow_lite/static/src/xml/cashflow_dashboard.xml:0
+msgid "Refresh"
+msgstr ""
+
+#. module: elaf_cashflow_lite
+#. odoo-javascript
+#: code:addons/elaf_cashflow_lite/static/src/xml/cashflow_dashboard.xml:0
+msgid "Retry"
+msgstr ""
+
+#. module: elaf_cashflow_lite
+#: model:ir.model.fields,field_description:elaf_cashflow_lite.field_elaf_cashflow_forecast__message_has_sms_error
+msgid "SMS Delivery error"
+msgstr ""
+
+#. module: elaf_cashflow_lite
+#. odoo-javascript
+#: code:addons/elaf_cashflow_lite/static/src/js/cashflow_dashboard.js:0
+msgid "Sales and purchase pipeline"
+msgstr ""
+
+#. module: elaf_cashflow_lite
+#. odoo-javascript
+#: code:addons/elaf_cashflow_lite/static/src/js/cashflow_edition.js:0
+msgid "Sales and purchase pipeline (orders not yet invoiced)"
+msgstr ""
+
+#. module: elaf_cashflow_lite
+#. odoo-javascript
+#: code:addons/elaf_cashflow_lite/static/src/js/cashflow_dashboard.js:0
+msgid "Sales order (pipeline)"
+msgstr ""
+
+#. module: elaf_cashflow_lite
+#: model_terms:ir.ui.view,arch_db:elaf_cashflow_lite.elaf_cf_settings_form
+msgid "Save"
+msgstr ""
+
+#. module: elaf_cashflow_lite
+#: model:ir.actions.act_window,name:elaf_cashflow_lite.action_forecasts
+#: model:ir.ui.menu,name:elaf_cashflow_lite.menu_forecasts
+msgid "Saved Forecasts"
+msgstr ""
+
+#. module: elaf_cashflow_lite
+#. odoo-javascript
+#: code:addons/elaf_cashflow_lite/static/src/xml/cashflow_dashboard.xml:0
+msgid "Saved forecast"
+msgstr ""
+
+#. module: elaf_cashflow_lite
+#. odoo-javascript
+#: code:addons/elaf_cashflow_lite/static/src/js/cashflow_edition.js:0
+msgid "Scenarios (payment delays, collection rate, deferrals) and comparison"
+msgstr ""
+
+#. module: elaf_cashflow_lite
+#. odoo-javascript
+#: code:addons/elaf_cashflow_lite/static/src/js/cashflow_dashboard.js:0
+msgid "Scenarios and side-by-side comparison"
+msgstr ""
+
+#. module: elaf_cashflow_lite
+#. odoo-javascript
+#: code:addons/elaf_cashflow_lite/static/src/xml/cashflow_edition.xml:0
+msgid ""
+"Scenarios test assumptions such as later customer payments or a lower "
+"collection rate before they happen."
+msgstr ""
+
+#. module: elaf_cashflow_lite
+#. odoo-javascript
+#: code:addons/elaf_cashflow_lite/static/src/xml/cashflow_dashboard.xml:0
+msgid "See Lite vs Pro"
+msgstr ""
+
+#. module: elaf_cashflow_lite
+#. odoo-javascript
+#: code:addons/elaf_cashflow_lite/static/src/xml/cashflow_dashboard.xml:0
+msgid "See what Pro adds"
+msgstr ""
+
+#. module: elaf_cashflow_lite
+#: model:ir.model.fields,field_description:elaf_cashflow_lite.field_elaf_cashflow_forecast_line__sequence
+msgid "Sequence"
+msgstr ""
+
+#. module: elaf_cashflow_lite
+#. odoo-javascript
+#: code:addons/elaf_cashflow_lite/static/src/xml/cashflow_dashboard.xml:0
+#: model:ir.ui.menu,name:elaf_cashflow_lite.menu_settings
+msgid "Settings"
+msgstr ""
+
+#. module: elaf_cashflow_lite
+#. odoo-javascript
+#: code:addons/elaf_cashflow_lite/static/src/xml/cashflow_chart.xml:0
+#: model:ir.model.fields,field_description:elaf_cashflow_lite.field_elaf_cashflow_forecast_day__shortage
+#: model:ir.model.fields,field_description:elaf_cashflow_lite.field_elaf_cashflow_forecast_line__shortage
+msgid "Shortage"
+msgstr ""
+
+#. module: elaf_cashflow_lite
+#. odoo-javascript
+#: code:addons/elaf_cashflow_lite/static/src/xml/cashflow_dashboard.xml:0
+msgid "Shortage · gap"
+msgstr ""
+
+#. module: elaf_cashflow_lite
+#. odoo-javascript
+#: code:addons/elaf_cashflow_lite/static/src/xml/cashflow_edition.xml:0
+msgid "Shortages found"
+msgstr ""
+
+#. module: elaf_cashflow_lite
+#: model:ir.model.fields,field_description:elaf_cashflow_lite.field_elaf_cashflow_forecast_flow__source
+#: model_terms:ir.ui.view,arch_db:elaf_cashflow_lite.elaf_cf_flow_search
+msgid "Source"
+msgstr ""
+
+#. module: elaf_cashflow_lite
+#. odoo-javascript
+#: code:addons/elaf_cashflow_lite/static/src/xml/cashflow_dashboard.xml:0
+msgid "Source check (horizon + beyond)"
+msgstr ""
+
+#. module: elaf_cashflow_lite
+#: model:ir.model.fields,field_description:elaf_cashflow_lite.field_elaf_cashflow_forecast__state
+msgid "State"
+msgstr ""
+
+#. module: elaf_cashflow_lite
+#. odoo-javascript
+#: code:addons/elaf_cashflow_lite/static/src/xml/cashflow_dashboard.xml:0
+msgid "Status"
+msgstr ""
+
+#. module: elaf_cashflow_lite
+#. odoo-javascript
+#: code:addons/elaf_cashflow_lite/static/src/xml/cashflow_edition.xml:0
+msgid ""
+"The Discover Pro link opens the Odoo Apps listing once it is published.\n"
+"                            Support:"
+msgstr ""
+
+#. module: elaf_cashflow_lite
+#. odoo-python
+#: code:addons/elaf_cashflow_lite/models/elaf_cashflow_engine.py:0
+#: code:addons/elaf_cashflow_lite/models/elaf_cashflow_forecast.py:0
+msgid ""
+"The Lite edition forecasts up to %(days)s days. 30/60/90-day horizons are a "
+"Pro edition feature."
+msgstr ""
+
+#. module: elaf_cashflow_lite
+#. odoo-javascript
+#: code:addons/elaf_cashflow_lite/static/src/xml/cashflow_dashboard.xml:0
+msgid "The Lite edition works with one company:"
+msgstr ""
+
+#. module: elaf_cashflow_lite
+#. odoo-python
+#: code:addons/elaf_cashflow_lite/models/elaf_cashflow_usage.py:0
+msgid ""
+"The Lite edition works with one company: %(company)s. The Pro edition "
+"supports multi-company treasury."
+msgstr ""
+
+#. module: elaf_cashflow_lite
+#. odoo-python
+#: code:addons/elaf_cashflow_lite/models/elaf_cashflow_engine.py:0
+msgid "The document no longer exists."
+msgstr ""
+
+#. module: elaf_cashflow_lite
+#. odoo-python
+#: code:addons/elaf_cashflow_lite/models/elaf_cashflow_forecast.py:0
+msgid ""
+"The figures of a forecast are calculated by Cash Flow and cannot be entered."
+" Generate the forecast instead."
+msgstr ""
+
+#. module: elaf_cashflow_lite
+#: model:ir.model.fields,help:elaf_cashflow_lite.field_elaf_cashflow_forecast__date_from
+msgid ""
+"The forecast starts today; the actual balance is measured at this date."
+msgstr ""
+
+#. module: elaf_cashflow_lite
+#. odoo-python
+#: code:addons/elaf_cashflow_lite/models/elaf_cashflow_engine.py:0
+msgid "This document type cannot be opened from the forecast."
+msgstr ""
+
+#. module: elaf_cashflow_lite
+#. odoo-python
+#: code:addons/elaf_cashflow_lite/models/elaf_cashflow_forecast.py:0
+msgid "This flow has no source document."
+msgstr ""
+
+#. module: elaf_cashflow_lite
+#: model:ir.model.fields,field_description:elaf_cashflow_lite.field_elaf_cashflow_forecast_line__date_end
+msgid "To"
+msgstr ""
+
+#. module: elaf_cashflow_lite
+#. odoo-javascript
+#: code:addons/elaf_cashflow_lite/static/src/js/cashflow_chart.js:0
+msgid "Today"
+msgstr ""
+
+#. module: elaf_cashflow_lite
+#. odoo-javascript
+#: code:addons/elaf_cashflow_lite/static/src/xml/cashflow_dashboard.xml:0
+#: model_terms:ir.ui.view,arch_db:elaf_cashflow_lite.elaf_cf_flow_list
+#: model_terms:ir.ui.view,arch_db:elaf_cashflow_lite.elaf_cf_move_line_list
+msgid "Total"
+msgstr ""
+
+#. module: elaf_cashflow_lite
+#. odoo-javascript
+#: code:addons/elaf_cashflow_lite/static/src/xml/cashflow_dashboard.xml:0
+msgid "Total inflows / outflows"
+msgstr ""
+
+#. module: elaf_cashflow_lite
+#: model_terms:ir.ui.view,arch_db:elaf_cashflow_lite.elaf_cf_move_line_list
+msgid "Total residual"
+msgstr ""
+
+#. module: elaf_cashflow_lite
+#. odoo-javascript
+#: code:addons/elaf_cashflow_lite/static/src/xml/cashflow_dashboard.xml:0
+msgid "Type"
+msgstr ""
+
+#. module: elaf_cashflow_lite
+#. odoo-javascript
+#: code:addons/elaf_cashflow_lite/static/src/js/cashflow_edition.js:0
+msgid "Unlimited"
+msgstr ""
+
+#. module: elaf_cashflow_lite
+#. odoo-javascript
+#: code:addons/elaf_cashflow_lite/static/src/js/cashflow_dashboard.js:0
+#: model:ir.model.fields.selection,name:elaf_cashflow_lite.selection__elaf_cashflow_forecast_flow__doc_type__payment
+msgid "Unmatched payment"
+msgstr ""
+
+#. module: elaf_cashflow_lite
+#. odoo-python
+#: code:addons/elaf_cashflow_lite/models/elaf_cashflow_engine.py:0
+msgid "Unsupported forecast horizon: %s days."
+msgstr ""
+
+#. module: elaf_cashflow_lite
+#. odoo-javascript
+#: code:addons/elaf_cashflow_lite/static/src/xml/cashflow_edition.xml:0
+msgid "Up to"
+msgstr ""
+
+#. module: elaf_cashflow_lite
+#. odoo-python
+#: code:addons/elaf_cashflow_lite/models/elaf_cashflow_usage.py:0
+msgid "Usage counters cannot be modified manually."
+msgstr ""
+
+#. module: elaf_cashflow_lite
+#. odoo-python
+#: code:addons/elaf_cashflow_lite/models/elaf_cashflow_usage.py:0
+msgid "Usage logs are append-only and created by the system."
+msgstr ""
+
+#. module: elaf_cashflow_lite
+#. odoo-python
+#: code:addons/elaf_cashflow_lite/models/elaf_cashflow_usage.py:0
+msgid "Usage logs are append-only."
+msgstr ""
+
+#. module: elaf_cashflow_lite
+#: model:ir.model.fields,field_description:elaf_cashflow_lite.field_elaf_cashflow_usage__used
+msgid "Used"
+msgstr ""
+
+#. module: elaf_cashflow_lite
+#: model:ir.model.fields,field_description:elaf_cashflow_lite.field_elaf_cashflow_usage_log__user_id
+#: model:res.groups,name:elaf_cashflow_lite.group_cashflow_user
+msgid "User"
+msgstr ""
+
+#. module: elaf_cashflow_lite
+#: model:ir.model.fields.selection,name:elaf_cashflow_lite.selection__elaf_cashflow_forecast_flow__source__payable
+msgid "Vendor bill"
+msgstr ""
+
+#. module: elaf_cashflow_lite
+#: model:res.groups,comment:elaf_cashflow_lite.group_cashflow_user
+msgid ""
+"View the cash position and saved forecasts, generate forecasts. Includes "
+"read-only accounting access: read access to every journal entry of the "
+"user's companies."
+msgstr ""
+
+#. module: elaf_cashflow_lite
+#: model:ir.model.fields,field_description:elaf_cashflow_lite.field_elaf_cashflow_forecast__website_message_ids
+msgid "Website Messages"
+msgstr ""
+
+#. module: elaf_cashflow_lite
+#: model:ir.model.fields,help:elaf_cashflow_lite.field_elaf_cashflow_forecast__website_message_ids
+msgid "Website communication history"
+msgstr ""
+
+#. module: elaf_cashflow_lite
+#: model:ir.model.fields.selection,name:elaf_cashflow_lite.selection__elaf_cashflow_forecast__granularity__week
+msgid "Weekly"
+msgstr ""
+
+#. module: elaf_cashflow_lite
+#. odoo-javascript
+#: code:addons/elaf_cashflow_lite/static/src/xml/cashflow_edition.xml:0
+msgid "What Pro would add with your data"
+msgstr ""
+
+#. module: elaf_cashflow_lite
+#: model:ir.model.fields,help:elaf_cashflow_lite.field_res_company__elaf_cf_include_outstanding
+#: model:ir.model.fields,help:elaf_cashflow_lite.field_res_config_settings__elaf_cf_include_outstanding
+msgid ""
+"When enabled, the forecast opening balance is the bank and cash ledger "
+"balance plus outstanding receipts minus outstanding payments (payments "
+"registered in Odoo but not yet matched with a bank statement line). They are"
+" always shown separately."
+msgstr ""
+
+#. module: elaf_cashflow_lite
+#. odoo-javascript
+#: code:addons/elaf_cashflow_lite/static/src/xml/cashflow_edition.xml:0
+msgid ""
+"When the allowance is used, your saved forecasts and the live cash position "
+"stay available."
+msgstr ""
+
+#. module: elaf_cashflow_lite
+#: model_terms:ir.ui.view,arch_db:elaf_cashflow_lite.elaf_cf_forecast_search
+msgid "With shortage"
+msgstr ""
+
+#. module: elaf_cashflow_lite
+#. odoo-javascript
+#: code:addons/elaf_cashflow_lite/static/src/js/cashflow_edition.js:0
+msgid "Working capital: DSO, DPO, overdue ratio"
+msgstr ""
+
+#. module: elaf_cashflow_lite
+#. odoo-python
+#: code:addons/elaf_cashflow_lite/wizard/elaf_cashflow_settings.py:0
+msgid "You cannot change settings of this company."
+msgstr ""
+
+#. module: elaf_cashflow_lite
+#. odoo-javascript
+#: code:addons/elaf_cashflow_lite/static/src/js/cashflow_dashboard.js:0
+msgid ""
+"You have used %(used)s of %(limit)s Lite forecast calculations. The Pro "
+"edition removes this limit."
+msgstr ""
+
+#. module: elaf_cashflow_lite
+#. odoo-python
+#: code:addons/elaf_cashflow_lite/models/elaf_cashflow_engine.py:0
+msgid "You need the Cash Flow / User access right."
+msgstr ""
+
+#. module: elaf_cashflow_lite
+#. odoo-javascript
+#: code:addons/elaf_cashflow_lite/static/src/js/cashflow_dashboard.js:0
+msgid ""
+"Your first forecast is saved. Open it any time from Saved Forecasts — "
+"viewing is always free."
+msgstr ""
+
+#. module: elaf_cashflow_lite
+#. odoo-javascript
+#: code:addons/elaf_cashflow_lite/static/src/xml/cashflow_edition.xml:0
+msgid "Your saved 7-day forecasts already show"
+msgstr ""
+
+#. module: elaf_cashflow_lite
+#. odoo-javascript
+#: code:addons/elaf_cashflow_lite/static/src/xml/cashflow_dashboard.xml:0
+msgid "bucket(s) below threshold). Click to see the flows."
+msgstr ""
+
+#. module: elaf_cashflow_lite
+#. odoo-javascript
+#: code:addons/elaf_cashflow_lite/static/src/xml/cashflow_dashboard.xml:0
+msgid "buckets,"
+msgstr ""
+
+#. module: elaf_cashflow_lite
+#: model_terms:ir.ui.view,arch_db:elaf_cashflow_lite.elaf_cf_forecast_form
+msgid "by"
+msgstr ""
+
+#. module: elaf_cashflow_lite
+#. odoo-javascript
+#: code:addons/elaf_cashflow_lite/static/src/xml/cashflow_dashboard.xml:0
+msgid "d"
+msgstr ""
+
+#. module: elaf_cashflow_lite
+#. odoo-javascript
+#: code:addons/elaf_cashflow_lite/static/src/xml/cashflow_dashboard.xml:0
+msgid "daily"
+msgstr ""
+
+#. module: elaf_cashflow_lite
+#. odoo-javascript
+#: code:addons/elaf_cashflow_lite/static/src/xml/cashflow_dashboard.xml:0
+msgid "day"
+msgstr ""
+
+#. module: elaf_cashflow_lite
+#. odoo-javascript
+#: code:addons/elaf_cashflow_lite/static/src/xml/cashflow_edition.xml:0
+msgid "day(s)"
+msgstr ""
+
+#. module: elaf_cashflow_lite
+#. odoo-javascript
+#: code:addons/elaf_cashflow_lite/static/src/xml/cashflow_edition.xml:0
+msgid ""
+"day(s) below the threshold. Pro looks 30, 60 or 90 days ahead, so you see "
+"shortages weeks earlier."
+msgstr ""
+
+#. module: elaf_cashflow_lite
+#. odoo-javascript
+#: code:addons/elaf_cashflow_lite/static/src/xml/cashflow_dashboard.xml:0
+msgid "days"
+msgstr ""
+
+#. module: elaf_cashflow_lite
+#. odoo-javascript
+#: code:addons/elaf_cashflow_lite/static/src/xml/cashflow_dashboard.xml:0
+msgid ""
+"days\n"
+"                        and detect liquidity shortages below your minimum cash threshold ("
+msgstr ""
+
+#. module: elaf_cashflow_lite
+#. odoo-javascript
+#: code:addons/elaf_cashflow_lite/static/src/xml/cashflow_edition.xml:0
+msgid "elaf_cashflow"
+msgstr ""
+
+#. module: elaf_cashflow_lite
+#. odoo-javascript
+#: code:addons/elaf_cashflow_lite/static/src/xml/cashflow_edition.xml:0
+msgid ""
+"forecast calculations in total. Generating and saving a forecast counts as "
+"one; viewing saved forecasts is always free."
+msgstr ""
+
+#. module: elaf_cashflow_lite
+#. odoo-javascript
+#: code:addons/elaf_cashflow_lite/static/src/xml/cashflow_dashboard.xml:0
+msgid "forecast calculations used ·"
+msgstr ""
+
+#. module: elaf_cashflow_lite
+#. odoo-javascript
+#: code:addons/elaf_cashflow_lite/static/src/xml/cashflow_edition.xml:0
+msgid "in"
+msgstr ""
+
+#. module: elaf_cashflow_lite
+#. odoo-javascript
+#: code:addons/elaf_cashflow_lite/static/src/xml/cashflow_dashboard.xml:0
+msgid "incl. overdue"
+msgstr ""
+
+#. module: elaf_cashflow_lite
+#. odoo-javascript
+#: code:addons/elaf_cashflow_lite/static/src/xml/cashflow_dashboard.xml:0
+msgid "invoice(s) past due"
+msgstr ""
+
+#. module: elaf_cashflow_lite
+#. odoo-javascript
+#: code:addons/elaf_cashflow_lite/static/src/xml/cashflow_edition.xml:0
+msgid "invoice(s) to collect"
+msgstr ""
+
+#. module: elaf_cashflow_lite
+#. odoo-javascript
+#: code:addons/elaf_cashflow_lite/static/src/xml/cashflow_edition.xml:0
+msgid ""
+"is overdue from customers. Pro ranks these invoices by amount, delay and "
+"customer payment behaviour and schedules follow-ups."
+msgstr ""
+
+#. module: elaf_cashflow_lite
+#. odoo-javascript
+#: code:addons/elaf_cashflow_lite/static/src/xml/cashflow_dashboard.xml:0
+msgid "item(s) · overdue"
+msgstr ""
+
+#. module: elaf_cashflow_lite
+#. odoo-javascript
+#: code:addons/elaf_cashflow_lite/static/src/xml/cashflow_dashboard.xml:0
+msgid "left"
+msgstr ""
+
+#. module: elaf_cashflow_lite
+#. odoo-javascript
+#: code:addons/elaf_cashflow_lite/static/src/xml/cashflow_edition.xml:0
+msgid "of"
+msgstr ""
+
+#. module: elaf_cashflow_lite
+#: model:ir.model.fields,field_description:elaf_cashflow_lite.field_elaf_cashflow_forecast_line__overdue_inflow
+msgid "of which Overdue Inflows"
+msgstr ""
+
+#. module: elaf_cashflow_lite
+#: model:ir.model.fields,field_description:elaf_cashflow_lite.field_elaf_cashflow_forecast_line__overdue_outflow
+msgid "of which Overdue Outflows"
+msgstr ""
+
+#. module: elaf_cashflow_lite
+#. odoo-javascript
+#: code:addons/elaf_cashflow_lite/static/src/xml/cashflow_dashboard.xml:0
+msgid "on"
+msgstr ""
+
+#. module: elaf_cashflow_lite
+#. odoo-javascript
+#: code:addons/elaf_cashflow_lite/static/src/xml/cashflow_edition.xml:0
+msgid "saved forecast(s) · largest gap"
+msgstr ""
+
+#. module: elaf_cashflow_lite
+#. odoo-javascript
+#: code:addons/elaf_cashflow_lite/static/src/xml/cashflow_dashboard.xml:0
+msgid "week"
+msgstr ""
+
+#. module: elaf_cashflow_lite
+#. odoo-javascript
+#: code:addons/elaf_cashflow_lite/static/src/xml/cashflow_dashboard.xml:0
+msgid "weekly"
+msgstr ""
+
+#. module: elaf_cashflow_lite
+#. odoo-javascript
+#: code:addons/elaf_cashflow_lite/static/src/xml/cashflow_dashboard.xml:0
+msgid "· click for how it is calculated"
+msgstr ""
+
+#. module: elaf_cashflow_lite
+#. odoo-javascript
+#: code:addons/elaf_cashflow_lite/static/src/xml/cashflow_dashboard.xml:0
+msgid "· included in opening"
+msgstr ""
+
+#. module: elaf_cashflow_lite
+#. odoo-javascript
+#: code:addons/elaf_cashflow_lite/static/src/xml/cashflow_dashboard.xml:0
+msgid "· not included in opening"
+msgstr ""
+
+#. module: elaf_cashflow_lite
+#. odoo-javascript
+#: code:addons/elaf_cashflow_lite/static/src/xml/cashflow_dashboard.xml:0
+msgid "· payments"
+msgstr ""
+
+#. module: elaf_cashflow_lite
+#. odoo-javascript
+#: code:addons/elaf_cashflow_lite/static/src/xml/cashflow_dashboard.xml:0
+msgid "· threshold"
+msgstr ""
+
+#. module: elaf_cashflow_lite
+#. odoo-javascript
+#: code:addons/elaf_cashflow_lite/static/src/xml/cashflow_dashboard.xml:0
+msgid "– not included"
+msgstr ""
+
+#. module: elaf_cashflow_lite
+#. odoo-javascript
+#: code:addons/elaf_cashflow_lite/static/src/xml/cashflow_dashboard.xml:0
+msgid "− Expected outflows: open vendor bill residuals due by"
+msgstr ""

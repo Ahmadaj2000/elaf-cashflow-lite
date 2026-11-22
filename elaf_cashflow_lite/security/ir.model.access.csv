@@ -1,0 +1,12 @@
+id,name,model_id:id,group_id:id,perm_read,perm_write,perm_create,perm_unlink
+access_forecast_user,forecast user,model_elaf_cashflow_forecast,group_cashflow_user,1,1,1,0
+access_forecast_manager,forecast manager,model_elaf_cashflow_forecast,group_cashflow_manager,1,1,1,1
+access_forecast_line_user,forecast line user,model_elaf_cashflow_forecast_line,group_cashflow_user,1,0,0,0
+access_forecast_line_manager,forecast line manager,model_elaf_cashflow_forecast_line,group_cashflow_manager,1,0,0,0
+access_forecast_day_user,forecast day user,model_elaf_cashflow_forecast_day,group_cashflow_user,1,0,0,0
+access_forecast_day_manager,forecast day manager,model_elaf_cashflow_forecast_day,group_cashflow_manager,1,0,0,0
+access_forecast_flow_user,forecast flow user,model_elaf_cashflow_forecast_flow,group_cashflow_user,1,0,0,0
+access_forecast_flow_manager,forecast flow manager,model_elaf_cashflow_forecast_flow,group_cashflow_manager,1,0,0,0
+access_usage_user,usage user,model_elaf_cashflow_usage,group_cashflow_user,1,0,0,0
+access_usage_log_user,usage log user,model_elaf_cashflow_usage_log,group_cashflow_user,1,0,0,0
+access_settings_wizard_manager,settings wizard manager,model_elaf_cashflow_settings,group_cashflow_manager,1,1,1,0

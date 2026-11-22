@@ -1,0 +1,269 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <!-- Flows -->
+    <record id="elaf_cf_flow_list" model="ir.ui.view">
+        <field name="name">elaf.cashflow.forecast.flow.list</field>
+        <field name="model">elaf.cashflow.forecast.flow</field>
+        <field name="arch" type="xml">
+            <tree create="0" edit="0" delete="0" decoration-danger="overdue">
+                <field name="bucket_date"/>
+                <field name="direction"/>
+                <field name="source"/>
+                <field name="doc_type" optional="show"/>
+                <field name="name"/>
+                <field name="partner_id"/>
+                <field name="orig_date"/>
+                <field name="date" optional="hide"/>
+                <field name="overdue"/>
+                <field name="days_overdue" optional="show"/>
+                <field name="foreign_currency" optional="show"/>
+                <field name="amount_currency" optional="show"/>
+                <field name="currency_id" column_invisible="1"/>
+                <field name="amount" sum="Total"/>
+                <field name="note" optional="hide"/>
+                <field name="res_id" column_invisible="1"/>
+                <button name="action_open_document" type="object" string="Open document" icon="fa-external-link"
+                        invisible="not res_id"/>
+            </tree>
+        </field>
+    </record>
+
+    <record id="elaf_cf_flow_form" model="ir.ui.view">
+        <field name="name">elaf.cashflow.forecast.flow.form</field>
+        <field name="model">elaf.cashflow.forecast.flow</field>
+        <field name="arch" type="xml">
+            <form create="0" edit="0" delete="0">
+                <header>
+                    <button name="action_open_document" type="object" string="Open document" class="btn-primary"
+                            invisible="not res_id"/>
+                </header>
+                <sheet>
+                    <group>
+                        <group>
+                            <field name="forecast_id"/>
+                            <field name="direction"/>
+                            <field name="source"/>
+                            <field name="doc_type"/>
+                            <field name="name"/>
+                            <field name="partner_id"/>
+                            <field name="move_line_id"/>
+                        </group>
+                        <group>
+                            <field name="currency_id" invisible="1"/>
+                            <field name="res_id" invisible="1"/>
+                            <field name="amount"/>
+                            <field name="foreign_currency"/>
+                            <field name="amount_currency"/>
+                            <field name="orig_date"/>
+                            <field name="date"/>
+                            <field name="bucket_date"/>
+                            <field name="overdue"/>
+                            <field name="days_overdue"/>
+                            <field name="note"/>
+                        </group>
+                    </group>
+                </sheet>
+            </form>
+        </field>
+    </record>
+
+    <record id="elaf_cf_flow_search" model="ir.ui.view">
+        <field name="name">elaf.cashflow.forecast.flow.search</field>
+        <field name="model">elaf.cashflow.forecast.flow</field>
+        <field name="arch" type="xml">
+            <search>
+                <field name="name"/>
+                <field name="partner_id"/>
+                <field name="forecast_id"/>
+                <filter name="inflows" string="Inflows" domain="[('direction', '=', 'in')]"/>
+                <filter name="outflows" string="Outflows" domain="[('direction', '=', 'out')]"/>
+                <filter name="overdue" string="Overdue" domain="[('overdue', '=', True)]"/>
+                <group>
+                    <filter name="group_bucket" string="Bucket" context="{'group_by': 'line_id'}"/>
+                    <filter name="group_partner" string="Partner" context="{'group_by': 'partner_id'}"/>
+                    <filter name="group_source" string="Source" context="{'group_by': 'source'}"/>
+                </group>
+            </search>
+        </field>
+    </record>
+
+    <!-- Forecast -->
+    <record id="elaf_cf_forecast_list" model="ir.ui.view">
+        <field name="name">elaf.cashflow.forecast.list</field>
+        <field name="model">elaf.cashflow.forecast</field>
+        <field name="arch" type="xml">
+            <tree decoration-danger="shortage" decoration-muted="state == 'draft'">
+                <field name="name"/>
+                <field name="company_id" groups="base.group_multi_company" optional="show"/>
+                <field name="date_from"/>
+                <field name="horizon"/>
+                <field name="currency_id" column_invisible="1"/>
+                <field name="opening_balance"/>
+                <field name="total_inflow"/>
+                <field name="total_outflow"/>
+                <field name="closing_balance"/>
+                <field name="lowest_balance"/>
+                <field name="threshold" optional="show"/>
+                <field name="shortage"/>
+                <field name="shortage_date"/>
+                <field name="computed_by_id" optional="hide"/>
+                <field name="state" widget="badge" decoration-success="state == 'done'"/>
+            </tree>
+        </field>
+    </record>
+
+    <record id="elaf_cf_forecast_form" model="ir.ui.view">
+        <field name="name">elaf.cashflow.forecast.form</field>
+        <field name="model">elaf.cashflow.forecast</field>
+        <field name="arch" type="xml">
+            <form>
+                <header>
+                    <button name="action_compute" type="object" string="Generate forecast" class="btn-primary"
+                            invisible="state != 'draft'"
+                            help="Computes and saves this forecast. Counts as one forecast calculation in the Lite edition."/>
+                    <button name="action_open_dashboard" type="object" string="Open in dashboard"
+                            invisible="state != 'done'"/>
+                    <field name="state" widget="statusbar"/>
+                </header>
+                <sheet>
+                    <div class="oe_button_box" name="button_box">
+                        <button name="action_view_inflows" type="object" class="oe_stat_button" icon="fa-arrow-down"
+                                invisible="state != 'done'">
+                            <field name="total_inflow" widget="statinfo" string="Inflows"/>
+                        </button>
+                        <button name="action_view_outflows" type="object" class="oe_stat_button" icon="fa-arrow-up"
+                                invisible="state != 'done'">
+                            <field name="total_outflow" widget="statinfo" string="Outflows"/>
+                        </button>
+                    </div>
+                    <div class="alert alert-danger" role="alert" invisible="not shortage">
+                        <strong>Liquidity shortage (forecast):</strong>
+                        the projected balance falls below the minimum cash threshold on
+                        <field name="shortage_date" class="oe_inline" readonly="1"/>
+                        by <field name="shortage_gap" class="oe_inline" readonly="1"/>.
+                    </div>
+                    <div class="oe_title">
+                        <label for="name"/>
+                        <h1><field name="name"/></h1>
+                    </div>
+                    <group>
+                        <group string="Parameters">
+                            <field name="company_id" groups="base.group_multi_company"/>
+                            <field name="currency_id" invisible="1"/>
+                            <field name="shortage" invisible="1"/>
+                            <field name="horizon" readonly="state != 'draft'"/>
+                            <field name="granularity" invisible="state != 'done'"/>
+                            <field name="date_from" invisible="state != 'done'"/>
+                            <field name="date_to" invisible="state != 'done'"/>
+                            <field name="threshold" invisible="state != 'done'"/>
+                            <field name="computed_by_id" invisible="state != 'done'"/>
+                            <field name="computed_at" invisible="state != 'done'"/>
+                        </group>
+                        <group string="How this is calculated" invisible="state != 'done'">
+                            <field name="cash_actual"/>
+                            <field name="outstanding_net"/>
+                            <field name="include_outstanding"/>
+                            <field name="opening_balance"/>
+                            <field name="total_inflow" string="+ Expected inflows"/>
+                            <field name="total_outflow" string="- Expected outflows"/>
+                            <field name="closing_balance" string="= Projected closing (forecast)"/>
+                            <field name="overdue_inflow"/>
+                            <field name="overdue_outflow"/>
+                            <field name="beyond_inflow"/>
+                            <field name="beyond_outflow"/>
+                            <field name="lowest_balance"/>
+                            <field name="lowest_date"/>
+                            <field name="shortage_days"/>
+                        </group>
+                    </group>
+                    <notebook invisible="state != 'done'">
+                        <page string="Buckets (forecast)" name="buckets">
+                            <field name="line_ids">
+                                <tree decoration-danger="shortage">
+                                    <field name="currency_id" column_invisible="1"/>
+                                    <field name="date_start"/>
+                                    <field name="date_end"/>
+                                    <field name="opening_balance"/>
+                                    <field name="inflow"/>
+                                    <field name="overdue_inflow" optional="show"/>
+                                    <field name="outflow"/>
+                                    <field name="overdue_outflow" optional="show"/>
+                                    <field name="net"/>
+                                    <field name="closing_balance"/>
+                                    <field name="lowest_balance" optional="hide"/>
+                                    <field name="shortage"/>
+                                    <field name="gap"/>
+                                    <button name="action_view_inflows" type="object" string="Inflows" icon="fa-arrow-down"/>
+                                    <button name="action_view_outflows" type="object" string="Outflows" icon="fa-arrow-up"/>
+                                </tree>
+                            </field>
+                        </page>
+                        <page string="Daily detail" name="daily">
+                            <field name="day_ids">
+                                <tree decoration-danger="shortage">
+                                    <field name="currency_id" column_invisible="1"/>
+                                    <field name="date"/>
+                                    <field name="opening_balance"/>
+                                    <field name="inflow"/>
+                                    <field name="outflow"/>
+                                    <field name="closing_balance"/>
+                                    <field name="shortage"/>
+                                </tree>
+                            </field>
+                        </page>
+                        <page string="Flows" name="flows">
+                            <field name="flow_ids" context="{'list_view_ref': 'elaf_cashflow_lite.elaf_cf_flow_list'}"/>
+                        </page>
+                        <page string="Notes" name="notes">
+                            <field name="note" placeholder="Internal notes about this forecast..."/>
+                        </page>
+                    </notebook>
+                    <p class="text-muted" invisible="state != 'done'">
+                        Forecast figures are estimates based on open invoices and bills at the time of the
+                        calculation. Actual figures are posted accounting balances.
+                    </p>
+                </sheet>
+                <div class="oe_chatter">
+                    <field name="message_follower_ids"/>
+                    <field name="message_ids"/>
+                </div>
+            </form>
+        </field>
+    </record>
+
+    <record id="elaf_cf_forecast_search" model="ir.ui.view">
+        <field name="name">elaf.cashflow.forecast.search</field>
+        <field name="model">elaf.cashflow.forecast</field>
+        <field name="arch" type="xml">
+            <search>
+                <field name="name"/>
+                <filter name="shortage" string="With shortage" domain="[('shortage', '=', True)]"/>
+                <filter name="done" string="Computed" domain="[('state', '=', 'done')]"/>
+                <group>
+                    <filter name="group_company" string="Company" context="{'group_by': 'company_id'}"/>
+                </group>
+            </search>
+        </field>
+    </record>
+
+    <record id="action_forecasts" model="ir.actions.act_window">
+        <field name="name">Saved Forecasts</field>
+        <field name="res_model">elaf.cashflow.forecast</field>
+        <field name="view_mode">tree,form</field>
+        <field name="help" type="html">
+            <p class="o_view_nocontent_smiling_face">Generate your first cash flow forecast</p>
+            <p>A forecast projects your actual bank and cash balance with open customer invoices
+               and vendor bills, and flags days below your minimum cash threshold.</p>
+        </field>
+    </record>
+
+    <record id="action_dashboard" model="ir.actions.client">
+        <field name="name">Cash Flow</field>
+        <field name="tag">elaf_cashflow_dashboard</field>
+    </record>
+
+    <record id="action_edition" model="ir.actions.client">
+        <field name="name">Lite vs Pro</field>
+        <field name="tag">elaf_cashflow_edition</field>
+    </record>
+</odoo>
